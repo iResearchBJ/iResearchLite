@@ -1,0 +1,5 @@
+<!--indexDetails.wxml-->
+<view class="container">
+<!-- <web-view src="https://api.iresearch.cn/h5/app_pc/index.html?AppID=2&AppType=0"></web-view> -->
+<web-view src="{{url}}"></web-view>
+</view>

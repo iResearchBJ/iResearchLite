@@ -1,0 +1,62 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/indexList/indexList",
+    "pages/news/news",
+    "pages/report/report",
+    "pages/research/research",
+    "pages/form/form",
+    "pages/dc/dc",
+    "pages/pdf/pdf",
+    "pages/logs/logs",
+    "pages/downList/downList",
+    "pages/indexDetails/indexDetails",
+    "pages/wxsearch/wxsearch"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#09bb07",
+    "navigationBarTitleText": "艾瑞报告",
+    "navigationBarTextStyle": "#fff",
+    "backgroundColor": "#f5f5f5",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#828186",
+    "selectedColor": "#69c72b",
+    "backgroundColor": "#f5f5f5",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "艾瑞指数",
+        "iconPath": "images/icon-index.png",
+        "selectedIconPath": "images/icon-index-active.png"
+      },
+      {
+        "pagePath": "pages/report/report",
+        "text": "艾瑞报告",
+        "iconPath": "images/icon-arbg.png",
+        "selectedIconPath": "images/icon-arbg-active.png"
+      },
+      {
+        "pagePath": "pages/research/research",
+        "text": "数据观点",
+        "iconPath": "images/icon-yjgd.png",
+        "selectedIconPath": "images/icon-yjgd-active.png"
+      },
+      {
+        "pagePath": "pages/form/form",
+        "text": "关于我们",
+        "iconPath": "images/icon-zxsj.png",
+        "selectedIconPath": "images/icon-zxsj-active.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

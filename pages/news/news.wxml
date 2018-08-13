@@ -1,0 +1,16 @@
+<import src="/wxParse/wxParse.wxml"/>
+<loading hidden="{{isHiddenLoading}}">加载中...</loading>
+<view class="news-wrap">
+  <view class="news-title">{{title}}</view>
+  <view class="news-source">{{resfrom}}　{{author}}　{{time}}</view>
+  <view class="news-review">{{review}}</view>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+<!-- <view class="foot-nav">
+    <navigator open-type="switchTab" wx:for="{{navdata.tabBar.list}}" wx:key="{{item.id}}" url="{{item.pagePath}}">
+      <image mode="aspectFit" src="{{index==navdata.pageId?item.selectedIconPath:item.iconPath}}"></image>
+      <text style="color:{{index==navdata.pageId?navdata.tabBar.selectedColor:navdata.tabBar.color}}">{{item.text}}</text>
+    </navigator>
+</view> -->
+
+<view class="gototop {{floorstatus?'active':''}}" bindtap="goToTop"></view>

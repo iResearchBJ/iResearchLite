@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class='hint' wx:if="{{cardTeams.length < 1}}">您还没有下载报告，赶紧去下载吧</view>
+
+  <block wx:for="{{cardTeams}}" wx:for-item="cardTeam">
+    <view class="hr"></view>
+    <view id="{{cardTeam.id}}"  data-percent="{{cardTeam.percent}}" class="item {{cardTeam.percent < percentOk ? 'downing':''}}" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{cardTeam.right}}px">
+      <view class='picbox'>
+        <image class="img" src="{{cardTeam.src}}" mode="widthFix"></image>
+      </view>
+
+      <view class="number-wrapper">
+        <view class="name">{{cardTeam.name}}</view>
+        <view class='pro' wx:if="{{cardTeam.percent < percentOk}}">
+          <progress class='inner-pro' percent="{{cardTeam.percent}}" show-info active stroke-width="3" activeColor='#69c72b' backgroundColor='rgb(178,180,183)' active-mode="forwards"/>
+        </view>
+      </view>
+
+      <view class="cancel" wx:if="{{cardTeam.percent < percentOk}}">
+        <view class="inner-cancel" id="cancel" data-id="{{cardTeam.id}}" bindtap="cancelItem">取消</view>
+      </view>
+
+      <view class="remove" wx:if="{{cardTeam.percent >= percentOk}}">
+        <view class="inner-remove" id="del" data-id="{{cardTeam.id}}" data-path="{{cardTeam.path}}" bindtap="delItem">删除</view>
+      </view>
+
+      <view class='link' data-id="{{cardTeam.id}}" data-path="{{cardTeam.path}}" bindtap="{{cardTeam.percent >= percentOk ? 'OpenFile':'FileLoading'}}"></view>
+
+    </view>
+  </block>
+  
+    <view class="hr"></view>
+    <view wx:if="{{cardTeams.length > 0}}">
+      <button bindtap='Clear'>清空</button>
+    </view>
+</view>

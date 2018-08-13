@@ -1,0 +1,16 @@
+<!--logs.wxml-->
+<import src="/utils/list_tem.wxml"/>
+<loading hidden="{{isHiddenLoading}}">加载中...</loading>
+<form bindsubmit="search" bindreset="">
+  <view class="search">
+    <view class="in">
+      <icon class="ico" size="16" color="#b2b2b2" type="search"></icon>
+      <input name="skey" bindconfirm="sumit"  value="{{key}}"  class="ipt" type="text" placeholder="请输入关键字" placeholder-style="opacity:.5" />
+    </view>
+  </view>
+</form>
+
+
+<view  class="container">
+ <template is="slist" data="{{...nlist}}"/>
+</view>

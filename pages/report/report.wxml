@@ -1,0 +1,23 @@
+<!--艾瑞报告-->
+<import src="/utils/list_tem.wxml"/>
+<view style="width:100%; overflow:hidden;">
+<form bindsubmit="formBindsubmit"  bindreset="">
+  <view class="search">
+    <view class="in">
+      <icon class="ico" size="16" color="#b2b2b2" type="search"></icon>
+      <input name="skey"  bindconfirm="sumit"   class="ipt" type="text" placeholder="累计2000+份专业研究报告" placeholder-style="opacity:.5" />
+    </view>
+  </view>
+</form>
+
+
+<view   class="container">
+ 
+ <template is="list" data="{{...nlist}}"/>
+
+ 
+  <view class="list-loading">{{loadName}}</view>
+</view>
+
+</view>
+<view class="gototop {{floorstatus?'active':''}}" bindtap="goToTop"></view>

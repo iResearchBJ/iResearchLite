@@ -1,0 +1,40 @@
+
+
+<wxs module="common" src="../../utils/common.wxs"></wxs>
+
+<form bindsubmit="" bindreset="">
+   <view class="search">
+    <view class="in">
+      <input class="ipt {{isSearchFocus?'focus':''}}" name="skey"  bindinput='researchserch' bindfocus="bindfocus" bindblur="bindblur" bindconfirm="bindSearch"  type="text" placeholder="搜索" placeholder-class="placeholder" />
+      <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='searchs'></icon>
+    </view>
+  </view> 
+</form>
+
+
+<!-- <view class="container">
+  <template is="list" data="{{...nlist}}"/>
+  <view class="list-loading">{{loadName}}</view>
+</view>-->
+
+<view class='data-list' >
+<block wx:for="{{nlist.list}}">
+    <navigator class='list-item {{item.ClassId==0?"picRight":""}}' url="/pages/indexDetails/indexDetails?researchID={{item.NewsId}}&resid={{item.Id}}&types=research">
+    <view class='item-pic'><image mode='{{item.ClassId==0?"aspectFill":"aspectFill"}}' src="{{item.SmallImg}}"></image></view>
+    <view class='item-cont'>
+      <view class='item-tit'>{{item.Title}}</view>
+      <view class='item-desc'>{{item.Content}}</view>
+      <view class='item-info'>
+        <view class='item-time'>{{common.formatTime(item.Uptime)}}</view>
+        <!-- <view class='item-flow'>1895</view> -->
+      </view>
+    </view>
+    <view class='item-box'></view>
+  </navigator>
+  </block>
+
+</view>
+
+<view class='load'>{{loadName}}</view>
+
+<view class="gototop {{floorstatus?'active':''}}" bindtap="goToTop"></view>

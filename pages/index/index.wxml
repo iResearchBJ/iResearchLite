@@ -1,0 +1,773 @@
+<!--艾瑞指数-->
+<wxs module="common" src="../../utils/common.wxs"></wxs>
+<view class="container page-{{curIndexTab.id}}" style="height:{{winHeight}}px">
+
+  <view class='index-hd'>
+    <view wx:if="{{curIndexTab.id=='app'}}">
+      <form bindreset="">
+        <view class="search"> 
+          <view class="in">
+            <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='appSearch'></icon>
+            <input name="skey" confirm-type="search" bindinput='appKeywordInput' bindconfirm="appSearch" class="ipt" type="text" placeholder="搜索您想要的指数" placeholder-style="opacity:.5"/>
+          </view>
+        </view>
+      </form>
+    </view>
+    <view wx:if="{{curIndexTab.id=='pc'}}">
+      <form bindreset="">
+        <view class="search"> 
+          <view class="in">
+            <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='pcSearch'></icon>
+            <input name="skey" confirm-type="search" bindinput='pcKeywordInput' bindconfirm="pcSearch" class="ipt" type="text" placeholder="搜索您想要的指数" placeholder-style="opacity:.5"/>
+          </view>
+        </view>
+      </form>
+    </view>
+    <view wx:if="{{curIndexTab.id=='video'}}">
+      <form bindreset="">
+        <view class="search"> 
+          <view class="in">
+            <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='videoSearch'></icon>
+            <input name="skey" confirm-type="search" bindinput='videoKeywordInput' bindconfirm="videoSearch" class="ipt" type="text" placeholder="搜索您想要的指数" placeholder-style="opacity:.5"/>
+          </view>
+        </view>
+      </form>
+    </view>
+    <view wx:if="{{curIndexTab.id=='channel'}}">
+      <form bindreset="">
+        <view class="search"> 
+          <view class="in">
+            <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='channelSearch'></icon>
+            <input name="skey" confirm-type="search" bindinput='channelKeywordInput' bindconfirm="channelSearch" class="ipt" type="text" value='{{channelKeyword}}' placeholder="搜索您想要的指数" placeholder-style="opacity:.5"/>
+          </view>
+        </view>
+      </form>
+    </view>
+    <view wx:if="{{curIndexTab.id=='overseas'}}">
+      <form bindreset="">
+        <view class="search"> 
+          <view class="in">
+            <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='overseasSearch'></icon>
+            <input name="skey" confirm-type="search" bindinput='overseasKeywordInput' bindconfirm="overseasSearch" class="ipt" type="text" value='{{overseasKeyword}}' placeholder="搜索您想要的指数" placeholder-style="opacity:.5"/>
+          </view>
+        </view>
+      </form>
+    </view>
+    <view wx:if="{{curIndexTab.id=='wxdata' && curWxdataMenuId == '0'}}">
+      <form bindreset="">
+        <view class="search"> 
+          <view class="in">
+            <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='wxdataSearch'></icon>
+            <input name="skey" confirm-type="search" bindinput='wxdataKeywordInput' bindconfirm="wxdataSearch" class="ipt" type="text" value='{{wxdataKeyword}}' placeholder="搜索您想要的指数" placeholder-style="opacity:.5"/>
+          </view>
+        </view>
+      </form>
+    </view>
+
+    <view wx:if="{{curIndexTab.id=='wxdata' && curWxdataMenuId == '1'}}">
+      <form bindreset="">
+        <view class="search"> 
+          <view class="in">
+            <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='mindataSearch'></icon>
+            <input name="skey" confirm-type="search" bindinput='mindataKeywordInput' bindconfirm="mindataSearch" class="ipt" type="text" value='{{mindataKeyword}}' placeholder="搜索您想要的指数" placeholder-style="opacity:.5"/>
+          </view>
+        </view>
+      </form>
+    </view>
+
+    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" scroll-with-animation="true">
+      <view wx:for="{{indexTabList}}" class="tab-item {{curIndexTab.id==item.id?'active':''}}" hover-class="tab-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichIndexTab">
+        {{item.name}}
+      </view>
+    </scroll-view>
+
+    
+
+    <view class='index-filter'>
+      <block wx:if="{{curIndexTab.id == 'app'}}">
+        <view wx:for="{{appFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
+          <text class='ico'>{{item.name}}</text>
+        </view>
+        <view class="index-filter-menu index-filter-menu-app {{curFilterTab.id=='appClass'?'active':''}}">
+          <view wx:for="{{appClassList}}" class="index-filter-menu-item {{curAppClass.ID==item.ID?'active':''}}" bindtap='changeAppClass' data-data='{{item}}'>
+            <text>{{item.ClassName}}</text>
+          </view>
+        </view>
+
+        <view class="index-filter-menu index-filter-menu-app-child {{(curFilterTab.id=='appClass'&&curAppClass.ID!=0)?'active':''}}">
+          <view wx:for="{{appSecondClassList}}" class="index-filter-menu-item {{curAppSecondClass.ID==item.ID?'active':''}}" bindtap='changeByAppClass' data-data='{{item}}'>
+            <text>{{item.ClassName}}</text>
+          </view>
+        </view>
+
+        <view class="index-filter-menu {{curFilterTab.id=='appTime'?'active':''}}">
+          <view wx:for="{{appTimeList}}" class="index-filter-menu-item {{curAppTime.ID==item.ID?'active':''}}" bindtap='changeAppTime' data-data='{{item}}'>
+            <text>{{item.TimeName}}</text>
+          </view>
+        </view>
+
+        <view class="index-filter-menu {{curFilterTab.id=='appDimension'?'active':''}}">
+          <view wx:for="{{appDimensionList}}" class="index-filter-menu-item {{curAppDimension.id==item.id?'active':''}}" bindtap='changeAppDimension' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+
+      </block>
+      <block wx:if="{{curIndexTab.id == 'pc'}}">
+        <view wx:for="{{pcFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
+          <text class='ico'>{{item.name}}</text>
+        </view>
+        <view class="index-filter-menu index-filter-menu-app {{curFilterTab.id=='pcClass'?'active':''}}">
+          <view wx:for="{{pcClassList}}" class="index-filter-menu-item {{curPcClass.Id==item.Id?'active':''}}" bindtap='changePcClass' data-data='{{item}}'>
+            <text>{{item.Name}}</text>
+          </view>
+        </view>
+        <view class="index-filter-menu index-filter-menu-app-child {{(curFilterTab.id=='pcClass'&&curPcClass.Id!=0)?'active':''}}">
+          <view wx:for="{{pcSecondClassList}}" class="index-filter-menu-item {{curPcSecondClass.Id==item.Id?'active':''}}" bindtap='changeByPcClass' data-data='{{item}}'>
+            <text>{{item.Name}}</text>
+          </view>
+        </view>
+        <view class="index-filter-menu {{curFilterTab.id=='pcTime'?'active':''}}">
+          <view wx:for="{{pcTimeList}}" class="index-filter-menu-item {{curPcTime.ID==item.ID?'active':''}}" bindtap='changePcTime' data-data='{{item}}'>
+            <text>{{item.TimeName}}</text>
+          </view>
+        </view>
+        <view class="index-filter-menu {{curFilterTab.id=='pcDimension'?'active':''}}">
+          <view wx:for="{{pcDimensionList}}" class="index-filter-menu-item {{curPcDimension.id==item.id?'active':''}}" bindtap='changePcDimension' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'video'}}">
+        <view wx:for="{{videoFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
+          <text class='ico'>{{item.name}}</text>
+        </view>
+        <view class="index-filter-menu {{curFilterTab.id=='videoDevice'?'active':''}}">
+          <view wx:for="{{videoDeviceList}}" class="index-filter-menu-item {{curVideoDevice.id==item.id?'active':''}}" bindtap='changeVideoDevice' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+        <view class="index-filter-menu {{curFilterTab.id=='videoTime'?'active':''}}">
+          <view wx:for="{{videoTimeList}}" class="index-filter-menu-item {{curVideoTime.ID==item.ID?'active':''}}" bindtap='changeVideoTime' data-data='{{item}}'>
+            <text>{{item.TimeName}}</text>
+          </view>
+        </view>
+        <view class="index-filter-menu {{curFilterTab.id=='videoClass'?'active':''}}">
+          <view wx:for="{{videoClassList}}" class="index-filter-menu-item {{curVideoClass.id==item.id?'active':''}}" bindtap='changeVideoClass' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'ad'}}">
+        <view wx:for="{{adFilterList}}" class="index-filter-item" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
+          <text class='ico'>{{item.name}}</text>
+        </view>
+        <view class="index-filter-menu {{curFilterTab.id=='adDevice'?'active':''}}">
+          <view wx:for="{{adDeviceList}}" class="index-filter-menu-item {{curAdDevice.id==item.id?'active':''}}" bindtap='changeAdDevice' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+        <view class="index-filter-menu {{curFilterTab.id=='adTime'?'active':''}}">
+          <view wx:for="{{adTimeList}}" class="index-filter-menu-item {{curAdTime.Id==item.Id?'active':''}}" bindtap='changeAdTime' data-data='{{item}}'>
+            <text>{{item.Name}}</text>
+          </view>
+        </view>
+        <view class="index-filter-menu {{curFilterTab.id=='adClass'?'active':''}}">
+          <view wx:for="{{adClassList}}" class="index-filter-menu-item {{curAdClass.Id==item.Id?'active':''}}" bindtap='changeAdClass' data-data='{{item}}'>
+            <text>{{item.Name}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'device'}}">
+        <view wx:for="{{deviceFilterList}}" class="index-filter-item" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
+          <text class='ico'>{{item.name}}</text>
+        </view>
+
+        <view class="index-filter-menu {{curFilterTab.id=='deviceClass'?'active':''}}">
+          <view wx:for="{{deviceClassList}}" class="index-filter-menu-item {{curDeviceClass.id==item.id?'active':''}}" bindtap='changeDeviceClass' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+
+        <view class="index-filter-menu {{curFilterTab.id=='deviceYear'?'active':''}}">
+          <view wx:for="{{deviceYearList}}" class="index-filter-menu-item {{curDeviceYear.id==item.id?'active':''}}" bindtap='changeDeviceYear' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+
+
+        <view class="index-filter-menu {{curFilterTab.id=='deviceWeek'?'active':''}}">
+          <view wx:for="{{deviceWeekList}}" class="index-filter-menu-item {{curDeviceWeek.id==item.id?'active':''}}" bindtap='changeDeviceWeek' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+
+      </block>
+      
+      <block wx:if="{{curIndexTab.id == 'channel'}}">
+        <view wx:for="{{channelFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
+          <text class='ico'>{{item.name}}</text>
+        </view>
+        <view class="index-filter-menu index-filter-menu-app {{curFilterTab.id=='channelClass'?'active':''}}">
+          <view wx:for="{{channelClassList}}" class="index-filter-menu-item {{curChannelClass.ID==item.ID?'active':''}}" bindtap='changeChannelClass' data-data='{{item}}'>
+            <text>{{item.ClassName}}</text>
+          </view>
+        </view>
+
+        <view class="index-filter-menu index-filter-menu-app-child {{(curFilterTab.id=='channelClass'&&curChannelClass.ID!=0)?'active':''}}">
+          <view wx:for="{{channelSecondClassList}}" class="index-filter-menu-item {{curChannelSecondClass.ID==item.ID?'active':''}}" bindtap='changeByChannelClass' data-data='{{item}}'>
+            <text>{{item.ClassName}}</text>
+          </view>
+        </view>
+
+        <view class="index-filter-menu {{curFilterTab.id=='channelTime'?'active':''}}">
+          <view wx:for="{{channelTimeList}}" class="index-filter-menu-item {{curChannelTime.ID==item.ID?'active':''}}" bindtap='changeChannelTime' data-data='{{item}}'>
+            <text>{{item.TimeName}}</text>
+          </view>
+        </view>
+
+        <view class="index-filter-menu {{curFilterTab.id=='channelChannel'?'active':''}}">
+          <view wx:for="{{channelChannelList}}" class="index-filter-menu-item {{curChannelChannel.channel_id==item.channel_id?'active':''}}" bindtap='changeChannelChannel' data-data='{{item}}'>
+            <text>{{item.channel_name}}</text>
+          </view>
+        </view>
+
+      </block>
+      <block wx:if="{{curIndexTab.id == 'overseas'}}">
+        <view wx:for="{{overseasFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
+          <text class='ico'>{{item.name}}</text>
+        </view>
+        <view class="index-filter-menu {{curFilterTab.id=='overseasClass'?'active':''}}">
+          <view wx:for="{{overseasClassList}}" class="index-filter-menu-item {{curOverseasClass.ID==item.ID?'active':''}}" bindtap='changeOverseasClass' data-data='{{item}}'>
+            <text>{{item.className}}</text>
+          </view>
+        </view>
+
+        
+
+        <view class="index-filter-menu {{curFilterTab.id=='overseasTime'?'active':''}}">
+          <view wx:for="{{overseasTimeList}}" class="index-filter-menu-item {{curOverseasTime.timeID==item.timeID?'active':''}}" bindtap='changeOverseasTime' data-data='{{item}}'>
+            <text>{{item.TimeName}}</text>
+          </view>
+        </view>
+
+        <view class="index-filter-menu {{curFilterTab.id=='overseasOverseas'?'active':''}}">
+          <view wx:for="{{overseasOverseasList}}" class="index-filter-menu-item {{curOverseasOverseas.code==item.code?'active':''}}" bindtap='changeOverseasOverseas' data-data='{{item}}'>
+            <text>{{item.cname}}</text>
+          </view>
+        </view>
+
+      </block>
+      <block wx:if="{{curIndexTab.id == 'wxdata' && curWxdataMenuId == '0'}}">
+
+      <view data-data="-1" class="index-filter-item {{curFilterTab.id=='-1'?'active':''}} {{curWxdataMenuIsNew?'item-new':''}}" hover-class="index-filter-item-hover"  bindtap="swichFilterwxData">
+          <text class='ico'>{{curWxdataMenuName}}</text>
+        </view>
+      
+        <view wx:for="{{wxdataFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
+          <text class='ico'>{{item.name}}</text>
+        </view>
+
+        <view class="index-filter-menu {{curFilterTab.id=='-1'?'active':''}}">
+          <view wx:for="{{wxdataMenuList}}" class="index-filter-menu-item {{curWxdataMenuId==item.id?'active':''}} {{item.isNew?'item-new':''}}" bindtap='changeWxdataMenu' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+          
+        </view>
+
+
+        
+
+
+        <view class="index-filter-menu index-filter-menu-app {{curFilterTab.id=='wxdataClass'?'active':''}}">
+          <view wx:for="{{wxdataClassList}}" class="index-filter-menu-item {{curWxdataSecondClass.C_id==item.C_id?'active':''}}" bindtap='changeByWxdataClass' data-data='{{item}}'>
+            <text>{{item.C_name}}</text>
+            
+          </view>
+        </view>
+
+        
+
+        <view class="index-filter-menu {{curFilterTab.id=='wxdataTime'?'active':''}}">
+          <view wx:for="{{wxdataTimeList}}" class="index-filter-menu-item {{curWxdataTime.ID==item.ID?'active':''}}" bindtap='changeWxdataTime' data-data='{{item}}'>
+            <text>{{item.TimeName}}</text>
+          </view>
+        </view>
+
+        <!-- <view class="index-filter-menu {{curFilterTab.id=='wxdataWxdata'?'active':''}}">
+          <view wx:for="{{wxdataWxdataList}}" class="index-filter-menu-item {{curWxdataWxdata.wxdata_id==item.wxdata_id?'active':''}}" bindtap='changeChannelChannel' data-data='{{item}}'>
+            <text>{{item.C_name}}</text>
+          </view>
+        </view> -->
+
+      </block>
+
+
+      <block wx:if="{{curIndexTab.id == 'wxdata' && curWxdataMenuId == '1'}}">
+
+      <view data-data="-2" class="index-filter-item {{curFilterTab.id=='-2'?'active':''}} {{curWxdataMenuIsNew?'item-new':''}}" hover-class="index-filter-item-hover"  bindtap="swichFilterwxData">
+          <text class='ico'>{{curWxdataMenuName}}</text>
+        </view>
+      
+        <view wx:for="{{mindataFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
+          <text class='ico'>{{item.name}}</text>
+        </view>
+
+        <view class="index-filter-menu {{curFilterTab.id=='-2'?'active':''}}">
+          <view wx:for="{{wxdataMenuList}}" class="index-filter-menu-item {{curWxdataMenuId==item.id?'active':''}} {{item.isNew?'item-new':''}}" bindtap='changeWxdataMenu' data-data='{{item}}'>
+            <text>{{item.name}}</text>
+          </view>
+          
+        </view>
+
+
+        <!-- <view class="index-filter-menu index-filter-menu-app {{curFilterTab.id=='mindataClass'?'active':''}}">
+          <view wx:for="{{mindataClassList}}" class="index-filter-menu-item {{curMindataClass.wx_categoryid==item.C_id?'active':''}}" bindtap='changeByWxdataClass' data-data='{{item}}'>
+            <text>{{item.C_name}}</text>
+            
+          </view>
+        </view>
+
+        <view class="index-filter-menu index-filter-menu-app-child {{curFilterTab.id=='wxdataClass'?'active':''}}">
+          <view wx:for="{{wxdataClassList}}" class="index-filter-menu-item {{curWxdataSecondClass.C_id==item.C_id?'active':''}}" bindtap='changeByWxdataClass' data-data='{{item}}'>
+            <text>{{item.C_name}}</text>
+            
+          </view>
+        </view> -->
+
+        <view class="index-filter-menu index-filter-menu-app {{curFilterTab.id=='mindataClass'?'active':''}}">
+          <view wx:for="{{mindataClassList}}" class="index-filter-menu-item {{curMindataClass.wx_categoryid==item.wx_categoryid?'active':''}}" bindtap='changeminClass' data-data='{{item}}'>
+            <text>{{item.wx_categoryname_cn}}</text>
+          </view>
+        </view>
+
+        <view class="index-filter-menu index-filter-menu-app-child {{(curFilterTab.id=='mindataClass'&&curMindataClass.wx_categoryid!=0)?'active':''}}">
+          <view wx:for="{{mindataSecondClassList}}" class="index-filter-menu-item {{curMindataSecondClass.ID==item.wx_classid?'active':''}}" bindtap='changeByMinClass' data-data='{{item}}'>
+            <text>{{item.wx_classname_cn}}</text>
+          </view>
+        </view>
+
+
+         
+
+        
+
+        <view class="index-filter-menu {{curFilterTab.id=='mindataTime'?'active':''}}">
+          <view wx:for="{{mindataTimeList}}" class="index-filter-menu-item {{curMindataTime.ID==item.ID?'active':''}}" bindtap='changeMindataTime' data-data='{{item}}'>
+            <text>{{item.TimeName}}</text>
+          </view>
+        </view>
+
+        
+
+      </block>
+
+
+
+    </view>
+
+    <view class="index-list-hd">
+      <block wx:if="{{curIndexTab.id == 'app'}}">
+        <text class="index-list-hd-th">排名</text>
+        <text class="index-list-hd-th">APP名称</text>
+        <text class="index-list-hd-th">{{curAppDimension.name}}</text>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'pc'}}">
+        <text class="index-list-hd-th">排名</text>
+        <text class="index-list-hd-th">PC名称</text>
+        <text class="index-list-hd-th">{{curPcDimension.name}}</text>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'video'}}">
+        <text class="index-list-hd-th">排名</text>
+        <text class="index-list-hd-th">影视名称</text>
+        <text class="index-list-hd-th">设备数(万)</text>
+        <text class="index-list-hd-th">频道</text>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'ad'}}">
+        <text class="index-list-hd-th">排名</text>
+        <text class="index-list-hd-th">名称</text>
+        <text class="index-list-hd-th">费用指数</text>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'device'}}">
+        <text class="index-list-hd-th">排名</text>
+        <text class="index-list-hd-th">名称</text>
+        <text class="index-list-hd-th">覆盖率(%)</text>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'channel'}}">
+        <text class="index-list-hd-th">排名</text>
+        <text class="index-list-hd-th">应用</text>
+        <text class="index-list-hd-th">新装设备\n数(万人)</text>
+        <text class="index-list-hd-th">环比(%)</text>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'overseas'}}">
+        <text class="index-list-hd-th">排名</text>
+        <text class="index-list-hd-th">应用</text>
+        <text class="index-list-hd-th">活跃参透率(%)</text>
+        <text class="index-list-hd-th">人均打开次数</text>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'wxdata' && curWxdataMenuId == '0'}}">
+        <text class="index-list-hd-th">排名</text>
+        <text class="index-list-hd-th">微信公众号</text>
+        <text class="index-list-hd-th">类别</text>
+        <text class="index-list-hd-th">设备覆盖指数</text>
+      </block>
+      <block wx:if="{{curIndexTab.id == 'wxdata' && curWxdataMenuId == '1'}}">
+        <text class="index-list-hd-th">排名</text>
+        <text class="index-list-hd-th">微信小程序</text>
+        <text class="index-list-hd-th">类别</text>
+        <text class="index-list-hd-th">设备覆盖指数</text>
+      </block>
+    </view>
+  </view>
+
+  <view class='index-bd'>
+
+    <swiper class="tab-content" current="{{curIndexTabs}}" duration="300" bindchange="switchSwiper">
+    <!--wxdata-->
+      <swiper-item>
+
+        <scroll-view wx:if="{{curWxdataMenuId == '0'}}" scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextWxdataData">
+           <block wx:for="{{wxdataDataList}}"> 
+           <navigator url="/pages/indexDetails/indexDetails?wxdataID={{common.myencodeURIComponent(item.wxbiz)}}&types=wxdata" hover-class="navigator-hover">
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view> 
+
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='ico-logo'>
+                    <!-- <image class="ico-app" src="{{item.logo}}"></image> -->
+                    <view class="ico-app-img" style='background-image: url({{item.logo}})'></view>
+                  </view>
+                  <view class='info'>
+                    <text class='tit'>{{item.wxName}}</text>
+                    <text class='desc'></text>
+                  </view>
+                </view>
+              </view> 
+              <view class='col'>
+                <view class='tit-sort'>
+                  {{item.kClassName}}
+                </view>
+              </view>
+              <view class='col'>
+                <view class='rate'>
+                  {{item.dataNum}}
+                </view>
+              </view>
+            </view>
+            </navigator>
+           </block> 
+          <view class="list-loading" wx:if="{{wxdataDataLoading}}">{{wxdataLoadName}}</view>
+        </scroll-view>
+
+        <scroll-view wx:if="{{curWxdataMenuId == '1'}}" scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextMindataData">
+           <block wx:for="{{mindataDataList}}"> 
+           <!-- <navigator url="/pages/indexDetails/indexDetails?wxdataID={{common.myencodeURIComponent(item.wxbiz)}}&types=wxdata" hover-class="navigator-hover"> -->
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view> 
+
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='ico-logo'>
+                    <image class="ico-app" src="{{item.wx_logo}}"></image>
+                    <!-- <view class="ico-app-img" style='background-image: url({{item.wx_logo}})'></view> -->
+                  </view>
+                  <view class='info'>
+                    <text class='tit'>{{item.wx_name}}</text>
+                    <text class='desc'></text>
+                  </view>
+                </view>
+              </view> 
+              <view class='col'>
+                <view class='tit-sort'>
+                <text class='tit-sort-b'>{{item.wx_categoryname}}</text>
+                <text class='tit-sort-s'>{{item.wx_classname}}</text>
+                  
+                </view>
+              </view>
+              <view class='col'>
+                <view class='rate'>
+                  {{item.uv}}
+                </view>
+              </view>
+            </view>
+            <!-- </navigator> -->
+           </block> 
+          <view class="list-loading" wx:if="{{mindataDataLoading}}">{{mindataLoadName}}</view>
+        </scroll-view>
+      </swiper-item>
+
+
+      <!--app-->
+      <swiper-item>
+        <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextAppData">
+
+           <block wx:for="{{appDataList}}"> 
+           <!--<navigator url='../indexDetails/indexDetails?id={{item.Appid}}&tid={{item.TimeId}}'>-->
+           <navigator url="/pages/indexDetails/indexDetails?AppID={{item.Appid}}&AppTID={{item.TimeId}}&types=app" hover-class="navigator-hover">
+           
+           <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view> 
+
+              <view class='col'>
+                <view class='index-name {{item.IsService?"isService":""}}'>
+                  <view class='ico-logo'>
+                    <image class="ico-app" src="{{item.AppLogo}}"></image>
+                  </view>
+                  <view class='info'>
+                    <text class='tit'>{{item.AppName}}</text>
+                    <text class='desc'>{{item.KclassName}}</text>
+                  </view>
+                  <view wx:if="{{item.IsService}}" class='ico-service'></view>
+                </view>
+              </view> 
+
+              <view class='col' wx:if="{{curAppDimension.id==10}}">
+                <view class='rate'>
+                  {{item.DayMachineNum==0?"<5":item.DayMachineNum}}<text class='ico-up' wx:if="{{item.DmGrowth>0}}">↑</text>
+                  <text class='ico-down' wx:if="{{item.DmGrowth<0}}">↓</text><text wx:if="{{item.DmGrowth==0}}">-</text>
+                </view>
+              </view>
+              <view class='col' wx:if="{{curAppDimension.id==2}}">
+                <view class='rate'>
+                 {{item.UseNum==0?"<5":item.UseNum}}<text class='ico-up' wx:if="{{item.Growth>0}}">↑</text>
+                <text class='ico-down' wx:if="{{item.Growth<0}}">↓</text><text wx:if="{{item.Growth==0}}">-</text>
+                </view>
+              </view>
+              <view class='col' wx:if="{{curAppDimension.id==6}}">
+                <view class='rate'>
+                  {{item.UseTime==0?"<5":item.UseTime}}<text class='ico-up' wx:if="{{item.TimeGrowth>0}}">↑</text>
+                <text class='ico-down' wx:if="{{item.TimeGrowth<0}}">↓</text><text wx:if="{{item.TimeGrowth==0}}">-</text>
+                </view>
+              </view>
+            </view>
+           </navigator>
+            
+           </block> 
+          <view class="list-loading" wx:if="{{appDataLoading}}">{{appLoadName}}</view>
+        </scroll-view>
+      </swiper-item>
+      <!--pc-->
+      <swiper-item>
+        <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextPcData">
+          <block wx:for="{{pcDataList}}">
+          <navigator url="/pages/indexDetails/indexDetails?PCID={{item.Appid}}&PCKID={{item.Kclassid}}&PCTID={{item.TimeId}}&types=pc" hover-class="navigator-hover">
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view>
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='ico-logo'>
+                    <image class="ico-pc" src="http://index.iresearch.com.cn/{{item.AppLogo}}"></image>
+                  </view>
+                  <view class='info'>
+                    <text class='tit'>{{item.AppName}}</text>
+                    <text class='desc'>{{item.KclassName}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='col' wx:if="{{curPcDimension.id==10}}">
+                <view class='rate'>
+                  {{item.DayMachineNum}}<text class='ico-up' wx:if="{{item.DmGrowth>0}}">↑</text>
+                <text class='ico-down' wx:if="{{item.DmGrowth<0}}">↓</text><text wx:if="{{item.DmGrowth==0}}">-</text>
+                </view>
+              </view>
+              <view class='col' wx:if="{{curPcDimension.id==2}}">
+                <view class='rate'>
+                  {{item.UseNum}}<text class='ico-up' wx:if="{{item.Growth>0}}">↑</text>
+                <text class='ico-down' wx:if="{{item.Growth<0}}">↓</text><text wx:if="{{item.Growth==0}}">-</text>
+                </view>
+              </view>
+              <view class='col' wx:if="{{curPcDimension.id==6}}">
+                <view class='rate'>
+                  {{item.UseTime}}<text class='ico-up' wx:if="{{item.TimeGrowth>0}}">↑</text>
+                <text class='ico-down' wx:if="{{item.TimeGrowth<0}}">↓</text><text wx:if="{{item.TimeGrowth==0}}">-</text>
+                </view>
+              </view>
+            </view>
+            </navigator>
+          </block>
+          <view class="list-loading" wx:if="{{pcDataLoading}}">{{pcLoadName}}</view>
+        </scroll-view>
+      </swiper-item>
+      <!--video-->
+      <swiper-item>
+        <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextVideoData">
+          <block wx:for="{{videoDataList}}">
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view>
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='info'>
+                    <text class='tit'>{{item.mName}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='col'>
+                <view class='rate'>
+                  {{item.TimeData}}
+                </view>
+              </view>
+              <view class='col'>
+                <view class='tit-sort'>
+                  {{item.ClassName}}
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="list-loading" wx:if="{{videoDataLoading}}">{{videoLoadName}}</view>
+        </scroll-view>
+      </swiper-item>
+      <!--ad-->
+      <swiper-item>
+        <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}">
+          <block wx:for="{{adDataList}}">
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view>
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='info'>
+                    <text class='tit'>{{item.AdverName}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='col'>
+                <view class='rate'>
+                  {{item.HistoryIBill}}
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!--device-->
+      <swiper-item>
+        <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}">
+          <block wx:for="{{deviceDataList}}">
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view>
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='info' wx:if="{{curDeviceClass.id==0}}">
+                    <text class='tit'>{{item.BrandName}}</text>
+                  </view>
+                  <view class='info' wx:if="{{curDeviceClass.id==1}}">
+                    <text class='tit'>{{item.ModelName}}</text>
+                  </view>
+                  <view class='info' wx:if="{{curDeviceClass.id==2}}">
+                    <text class='tit'>{{item.BrandName}} {{item.ModelName}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='col'>
+                <view class='rate'>
+                  {{item.Percent}}
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!--channel-->
+      <swiper-item>
+        <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextChannelData">
+
+           <block wx:for="{{channelDataList}}"> 
+           <navigator url="/pages/indexDetails/indexDetails?channelID={{item.app_id}}&types=channel" hover-class="navigator-hover">
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view> 
+
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='ico-logo'>
+                    <image class="ico-app" src="{{item.app_logo}}"></image>
+                  </view>
+                  <view class='info'>
+                    <text class='tit'>{{item.app_name}}</text>
+                    <text class='desc'>{{item.channel_name}}-{{item.sub_category_name}}</text>
+                  </view>
+                </view>
+              </view> 
+              <view class='col'>
+                <view class='rate'>
+                  {{item.num}}<text class='ico-up' wx:if="{{item.num>0}}">↑</text>
+                  <text class='ico-down' wx:if="{{item.num<0}}">↓</text><text wx:if="{{item.num==0}}">-</text>
+                </view>
+              </view>
+              <view class='col'>
+                <view class='rate'>
+                  {{item.rate}}<text class='ico-up' wx:if="{{item.rate>0}}">↑</text>
+                  <text class='ico-down' wx:if="{{item.rate<0}}">↓</text><text wx:if="{{item.rate==0}}">-</text>
+                </view>
+              </view>
+            </view>
+            </navigator>
+           </block> 
+          <view class="list-loading" wx:if="{{channelDataLoading}}">{{channelLoadName}}</view>
+        </scroll-view>
+      </swiper-item>
+      <!--overseas-->
+      <swiper-item>
+        <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextOverseasData">
+
+           <block wx:for="{{OverseasDataList}}"> 
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view> 
+
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='ico-logo'>
+                    <image class="ico-app" src="{{item.AppLogo}}"></image>
+                  </view>
+                  <view class='info'>
+                    <text class='tit'>{{item.AppName}}</text>
+                    <text class='desc'>{{item.countryCode}}-{{item.className}}</text>
+                  </view>
+                </view>
+              </view> 
+              <view class='col'>
+                <view class='rate'>
+                  {{item.peneTrance}}%
+                </view>
+              </view>
+              <view class='col'>
+                <view class='rate'>
+                  {{item.userNum}}
+                </view>
+              </view>
+            </view>
+           </block> 
+          <view class="list-loading" wx:if="{{overseasDataLoading}}">{{overseasLoadName}}</view>
+        </scroll-view>
+      </swiper-item>
+
+
+
+      
+
+
+    </swiper>
+  </view>
+
+  <view class="index-mask {{curFilterTab!=null?'active':''}}" bindtap="maskToggle" style="height:{{winHeight}}px"></view>
+
+</view>
+
+<view class="gototop {{floorstatus?'active':''}}" bindtap="goToTop"></view>

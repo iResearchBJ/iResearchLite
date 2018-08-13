@@ -1,0 +1,504 @@
+<!-- <view class="formWrap">
+   
+    <view class="formWrap-bd">
+        <form bindsubmit="formSubmit" bindreset="formReset">
+            <view hidden="{{iserror}}" class="weui-toptips weui-toptips_warn js_tooltips">{{errormsg}}</view>
+            <view bindtap="phone"  class="weui-cells__title">您还可以致电：400-026-2099</view>
+            <view class="weui-cells weui-cells_form">
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <textarea bindfocus="onfoucs" name="content" value="{{content}}" class="weui-textarea" placeholder="需求/建议" rows="3" />
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cells__title">请留下您的联系方式：</view>
+            <view class="weui-cells weui-cells_form">
+            
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <input bindfocus="onfoucs" value="{{username}}" name="username" class="weui-input" type="text" placeholder="姓名" />
+                    </view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <input bindfocus="onfoucs" value="{{mobile}}" name="mobile" class="weui-input" type="number" placeholder="电话" />
+                    </view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <input bindfocus="onfoucs" value="{{email}}" name="email" class="weui-input" type="text" placeholder="邮箱" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_select">
+                    <view class="weui-cell__bd">
+                        <picker name="city" bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="city">
+                            <view class="picker">
+                            {{array[index].city}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+               
+            </view>
+        <checkbox-group bindchange="checkboxChange">
+            <label for="weuiAgree" class="weui-agree">
+                <checkbox name="iscontact" id="weuiAgree" class="weui-agree__checkbox" value="1" checked />
+                <text class="weui-agree__text">
+                    我愿意接收到来自iResearch的更多信息与优惠。
+                </text>
+            </label>
+        </checkbox-group>
+            <view class="weui-btn-area">
+                <button id="showTooltips" class="weui-btn weui-btn_primary" type="primary" form-type="submit" size="default" loading="{{isloading}}" disabled="{{isdisable}}">与我联系 ></button>
+            </view>
+
+            <view class="weui-agree">
+                <text class="weui-agree__text2">
+                    * iResearch不会将您的信息分享、售卖、租借、或交换给任何第三方公司作为销售推广之用。隐私条款和安全声明。
+                </text>
+            </view>
+        </form>
+
+    </view>
+</view> -->
+
+<view class='page-item item0'>
+
+  <view class='page-item-in'>
+
+    <view class='item-logo'>
+      <image class='item-logo-img' mode='aspectFit' src='/images/about/logo.png'></image>
+    </view>
+    <view class='item-tit'>
+      <view class='item-tit-ch'>为商业决策赋能</view>
+      <view class='item-tit-en'>Empower Business Decisions</view>
+    </view>
+    <view class='item-desc'>
+      <text class='item-desc-text'>艾瑞致力于成为解决商业决策问题的顶级专业机构
+为客户提供更多有价值的决策数据与方法论
+推动中国新经济的创新与发展</text>
+    </view>
+    <view class='item-pic'>
+      <image class='item-pic-img' mode='widthFix' src='/images/about/pic1.png'></image>
+    </view>
+
+  </view>
+
+</view>
+
+<view class='page-item item1'>
+
+  <view class='page-item-in'>
+
+    <view class='item-tit'>
+      <view class='item-tit-ico'>
+        <image class='item-tit-ico-img' mode='aspectFit' src='/images/about/ico1.png'></image>
+      </view>
+      <view class='item-tit-ch'>行业解决方案</view>
+    </view>
+    <view class='item-desc'>
+      <text class='item-desc-text'>依托海量数据，智能分拣互联网目标人群
+基于用户行为洞察，提供360度一站式解决方案</text>
+    </view>
+
+    <view class='ico-list widthFull'>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico2.png'></image>
+        </view>
+        <view class='list-item-tit'>互联网</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico3.png'></image>
+        </view>
+        <view class='list-item-tit'>影 视</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico4.png'></image>
+        </view>
+        <view class='list-item-tit'>广告公司</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico5.png'></image>
+        </view>
+        <view class='list-item-tit'>快 消</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico6.png'></image>
+        </view>
+        <view class='list-item-tit'>金 融</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico7.png'></image>
+        </view>
+        <view class='list-item-tit'>投资机构</view>
+      </view>
+    </view>
+
+
+  </view>
+
+</view>
+
+<view class='page-item item2'>
+
+  <view class='page-item-in'>
+
+    <view class='item-tit'>
+      <view class='item-tit-ico'>
+        <image class='item-tit-ico-img' mode='aspectFit' src='/images/about/ico1.png'></image>
+      </view>
+      <view class='item-tit-ch'>研究报告</view>
+    </view>
+
+    <view class='item-desc'>
+      <text class='item-desc-text'>中国“新经济”智库，每年发布行业报告100多份
+多维度实时分析新经济产业现状与行业发展前景</text>
+    </view>
+
+    <view class='item-pic-list widthFull'>
+      <view class='item-pic-item'>
+        <image class='item-pic-item-img' mode='aspectFit' src='/images/about/img1.png'></image>
+      </view>
+      <view class='item-pic-item'>
+        <image class='item-pic-item-img' mode='aspectFit' src='/images/about/img2.png'></image>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+
+<view class='page-item item3'>
+
+  <view class='page-item-in'>
+
+    <view class='item-tit'>
+      <view class='item-tit-ico'>
+        <image class='item-tit-ico-img' mode='aspectFit' src='/images/about/ico1.png'></image>
+      </view>
+      <view class='item-tit-ch'>大数据服务</view>
+    </view>
+
+    <view class='item-desc'>
+      <text class='item-desc-text'>基于十六年在互联网领域研究和积累
+为客户提供基于情报+数据+服务的多元化大数据解决方案</text>
+    </view>
+
+    <view class='item-pic'>
+      <image class='item-pic-img' mode='widthFix' src='/images/about/pic2.jpg'></image>
+    </view>
+
+  </view>
+
+</view>
+
+<view class='page-item item4'>
+
+  <view class='page-item-in'>
+
+    <view class='item-tit'>
+      <view class='item-tit-ico'>
+        <image class='item-tit-ico-img' mode='aspectFit' src='/images/about/ico1.png'></image>
+      </view>
+      <view class='item-tit-ch'>研究咨询服务</view>
+    </view>
+    <view class='item-desc'>
+      <text class='item-desc-text'>针对客户不同需求，提供精细化定制解决方案
+利用大数据洞察，提供商业决策，帮助企业达成目标</text>
+    </view>
+
+    <view class='ico-list widthFull'>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico8.png'></image>
+        </view>
+        <view class='list-item-tit'>品 牌</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico9.png'></image>
+        </view>
+        <view class='list-item-tit'>营销／广告</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico10.png'></image>
+        </view>
+        <view class='list-item-tit'>运营精细化</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico11.png'></image>
+        </view>
+        <view class='list-item-tit'>产品创新策略</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico12.png'></image>
+        </view>
+        <view class='list-item-tit'>汽 车</view>
+      </view>
+      <view class='ico-list-item'>
+        <view class='list-item-ico'>
+          <image class='list-item-ico-img' src='/images/about/ico13.png'></image>
+        </view>
+        <view class='list-item-tit'>新零售及电子商务</view>
+      </view>
+    </view>
+
+
+  </view>
+
+</view>
+
+
+<view class='page-item item5'>
+
+  <view class='page-item-in'>
+
+    <view class='item-tit'>
+      <view class='item-tit-ico'>
+        <image class='item-tit-ico-img' mode='aspectFit' src='/images/about/ico1.png'></image>
+      </view>
+      <view class='item-tit-ch'>投资研究服务</view>
+    </view>
+    <view class='item-desc'>
+      <text class='item-desc-text'>产业数据库扫描结合商业尽职调查深入研究
+智能辅助客户进行投资决策，识别投资风险</text>
+    </view>
+
+    <view class='item-picText widthFull'>
+      <view class='item-picText-item'>
+        <view class='picText-item-pic'>
+          <image class='picText-item-pic-img' mode='aspectFit' src='/images/about/pic3.png'></image>
+        </view>
+        <view class='picText-item-tit'>IPO行业顾问</view>
+        <view class='picText-item-desc'>
+          <text>IPO报告引用
+互联网企业超80%</text>
+        </view>
+      </view>
+      <view class='item-picText-item'>
+        <view class='picText-item-pic'>
+          <image class='picText-item-pic-img' mode='aspectFit' src='/images/about/pic4.png'></image>
+        </view>
+        <view class='picText-item-tit'>募投可行性研究</view>
+        <view class='picText-item-desc'>
+          <text>基于行业、对标公司情况
+预估项目收益</text>
+        </view>
+      </view>
+
+    </view>
+
+
+  </view>
+
+</view>
+
+<view class='page-item item6'>
+
+  <view class='page-item-in'>
+
+    <view class='item-tit'>
+      <view class='item-tit-ico'>
+        <image class='item-tit-ico-img' mode='aspectFit' src='/images/about/ico1.png'></image>
+      </view>
+      <view class='item-tit-ch'>会员专享服务</view>
+    </view>
+    <view class='item-desc'>
+      <text class='item-desc-text'>中国新经济领域最佳研究智囊团
+为企业家与投资人的核心决策赋能</text>
+    </view>
+
+    <view class='item-picText widthFull'>
+      <view class='item-picText-item'>
+        <view class='picText-item-pic'>
+          <image class='picText-item-pic-img' mode='aspectFit' src='/images/about/pic5.png'></image>
+        </view>
+        <view class='picText-item-tit'>专属活动</view>
+        <view class='picText-item-desc'>
+          <text>聚集资深
+行业专家</text>
+        </view>
+      </view>
+      <view class='item-picText-item'>
+        <view class='picText-item-pic'>
+          <image class='picText-item-pic-img' mode='aspectFit' src='/images/about/pic6.png'></image>
+        </view>
+        <view class='picText-item-tit'>专属投资内参</view>
+        <view class='picText-item-desc'>
+          <text>投资决策
+赋能</text>
+        </view>
+      </view>
+      <view class='item-picText-item'>
+        <view class='picText-item-pic'>
+          <image class='picText-item-pic-img' mode='aspectFit' src='/images/about/pic7.png'></image>
+        </view>
+        <view class='picText-item-tit'>人脉链接</view>
+        <view class='picText-item-desc'>
+          <text>链接有价值的
+企业家</text>
+        </view>
+      </view>
+
+    </view>
+
+
+  </view>
+
+</view>
+
+<view class='page-item item7'>
+
+  <view class='page-item-in'>
+
+    <view class='item-tit'>
+      <view class='item-tit-ico'>
+        <image class='item-tit-ico-img' mode='aspectFit' src='/images/about/ico1.png'></image>
+      </view>
+      <view class='item-tit-ch'>品牌营销服务</view>
+    </view>
+    <view class='item-desc'>
+      <text class='item-desc-text'>为客户塑造品牌核心价值、全面提升品牌知名度
+多角度诠释产品特点，打造最优品牌效力</text>
+    </view>
+
+    <view class='item-picText widthFull'>
+      <view class='item-picText-item'>
+        <view class='picText-item-pic'>
+          <image class='picText-item-pic-img' mode='aspectFit' src='/images/about/ico14.png'></image>
+        </view>
+        <view class='picText-item-tit'>
+          <text>艾瑞第三方
+品牌背书</text>
+        </view>
+
+      </view>
+      <view class='item-picText-item'>
+        <view class='picText-item-pic'>
+          <image class='picText-item-pic-img' mode='aspectFit' src='/images/about/ico15.png'></image>
+        </view>
+        <view class='picText-item-tit'>
+          <text>360°全方位
+营销策划</text>
+        </view>
+
+      </view>
+      <view class='item-picText-item'>
+        <view class='picText-item-pic'>
+          <image class='picText-item-pic-img' mode='aspectFit' src='/images/about/ico16.png'></image>
+        </view>
+        <view class='picText-item-tit'>
+          <text>精准定位
+品牌宣传</text>
+        </view>
+
+      </view>
+
+    </view>
+
+
+  </view>
+
+</view>
+
+<view class='page-item item8'>
+
+
+
+  <view class="formWrap">
+
+    <view class="formWrap-bd">
+      <form bindsubmit="formSubmit" bindreset="formReset">
+        <view hidden="{{iserror}}" class="weui-toptips weui-toptips_warn js_tooltips">{{errormsg}}</view>
+        <!-- <view bindtap="phone"  class="weui-cells__title">您还可以致电：400-026-2099</view> -->
+        <view class="weui-cells weui-cells_form">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+               <textarea bindfocus="onfoucs" name="content" value="{{content}}" class="weui-textarea" placeholder="需求/建议" rows="3" /> 
+              
+            </view>
+          </view>
+        </view>
+        <view class="weui-cells__title">请留下您的联系方式：</view>
+        <view class="weui-cells weui-cells_form">
+
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <input bindfocus="onfoucs" value="{{username}}" name="username" class="weui-input" type="text" placeholder="姓名" />
+            </view>
+          </view>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <input bindfocus="onfoucs" value="{{mobile}}" name="mobile" class="weui-input" type="number" placeholder="电话" />
+            </view>
+          </view>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <input bindfocus="onfoucs" value="{{email}}" name="email" class="weui-input" type="text" placeholder="邮箱" />
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__bd">
+              <picker name="city" bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="city">
+                <view class="picker">
+                  {{array[index].city}}
+                </view>
+              </picker>
+            </view>
+          </view>
+
+        </view>
+        <checkbox-group bindchange="checkboxChange">
+          <label for="weuiAgree" class="weui-agree">
+            <checkbox name="iscontact" id="weuiAgree" class="weui-agree__checkbox" value="1" checked />
+            <text class="weui-agree__text">
+                    我愿意接收到来自iResearch的更多信息与优惠。
+                </text>
+          </label>
+        </checkbox-group>
+        <view class="weui-btn-area">
+          <button id="showTooltips" class="weui-btn weui-btn_primary" type="primary" form-type="submit" size="default" loading="{{isloading}}" disabled="{{isdisable}}">提交需求 / 建议</button>
+        </view>
+
+        <view class='conact'>
+          <view class='conact-item' bindtap="phone">
+            <view class='conact-ico'>
+              <image class='conact-ico-img' src='/images/about/ico17.png' mode='aspectFit'></image>
+            </view>
+            <view class='conact-text'>400-026-2099</view>
+          </view>
+          <view class='conact-item'>
+            <view class='conact-ico'>
+              <image class='conact-ico-img' src='/images/about/ico18.png' mode='aspectFit'></image>
+            </view>
+            <view class='conact-text'>ask@iresearch.com.cn</view>
+          </view>
+
+        </view>
+
+        <view class="weui-agree">
+          <text class="weui-agree__text2">* iResearch不会将您的信息分享、售卖、租借、或交换给任何第三方公司作为销售推广之用。隐私条款和安全声明。
+                </text>
+        </view>
+      </form>
+
+    </view>
+  </view>
+
+
+
+
+
+
+</view>
+
+<view class="gototop {{floorstatus?'active':''}}" bindtap="goToTop"></view>

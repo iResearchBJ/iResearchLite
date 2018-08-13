@@ -1,0 +1,37 @@
+<import src="/wxParse/wxParse.wxml" />
+<loading hidden="{{isHiddenLoading}}">加载中...</loading>
+
+<view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+  </form>
+</view>
+
+<!-- <view class="u-return">
+  <view id="reportDown" class="item" bindtap='Down'>
+    <view class='ico-down'></view>
+  </view>  
+  <view id="reportDownList" class="item" bindtap='RedirectDownList'>
+    <text class='txt'>我的\n下载</text>
+    <view class="nub {{aniClass ? 'ani':''}}" wx:if='{{downloading}}'>{{downloadingNum}}</view>
+  </view>
+</view> -->
+
+<view class="pdf-wrap"> 
+  <view class="pdf-content">
+
+    <view class="pdf-item" wx:for="{{pdflist}}" wx:key="{{item}}">
+      <image mode="widthFix" src="{{item}}" data-url="{{item}}" bindtap="lookBigPic"></image>
+
+    </view>
+
+  </view>
+</view>
+
+<!-- <view class="foot-nav">
+  <navigator open-type="switchTab" wx:for="{{navdata.tabBar.list}}" wx:key="{{item.id}}" url="{{item.pagePath}}">
+    <image mode="aspectFit" src="{{index==navdata.pageId?item.selectedIconPath:item.iconPath}}"></image>
+    <text style="color:{{index==navdata.pageId?navdata.tabBar.selectedColor:navdata.tabBar.color}}">{{item.text}}</text>
+  </navigator>
+</view> -->
+
+<view class="gototop {{floorstatus?'active':''}}" bindtap="goToTop"></view>

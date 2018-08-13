@@ -1,0 +1,15 @@
+@import "/wxParse/wxParse.wxss";
+page{padding-bottom: 56px;}
+.news-wrap { padding:30rpx; text-align: justify; text-justify:inter-ideograph;}
+
+.wxParse-p { margin: 15px 0; font-size: 1.3em;}
+.wxParse-p:first-child { margin-top: 0;}
+
+.news-title { font-size: 1.8em; font-weight: 300; line-height: 1.1; border-bottom: #ccc solid 1px; padding-bottom: 10px;}
+
+.news-source { margin-top: .5em; opacity: .5;}
+
+.news-review { background-color: #ebebeb; padding: 20rpx; margin-top: 10px; border-radius: 5px;}
+
+image{max-width: 100%; display: block;}
+

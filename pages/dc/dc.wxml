@@ -1,0 +1,22 @@
+<!--指数解读-->
+<import src="/utils/list_tem.wxml"/>
+<form bindsubmit="" bindreset="">
+  <view class="search">
+    <view class="in">
+      <icon class="ico" size="16" color="#b2b2b2" type="search"></icon>
+      <input class="ipt" name="skey"  bindconfirm="sumit" type="text" placeholder="请输入关键字" placeholder-style="opacity:.5" />
+      
+    </view>
+  </view>
+</form>
+
+
+<view class="container">
+
+  <template is="list" data="{{...nlist}}"/>
+  <view class="list-loading">{{loadName}}</view>
+
+</view>
+
+
+<view class="gototop {{floorstatus?'active':''}}" bindtap="goToTop"></view>

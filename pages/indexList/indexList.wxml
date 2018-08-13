@@ -1,0 +1,15 @@
+<!-- <navigator url="/pages/index/index?id=app" open-type="switchTab">移动APP指数</navigator>
+<navigator url="/pages/index/index?id=pc" open-type="switchTab">PC Web指数</navigator>
+<navigator url="/pages/index/index?id=video" open-type="switchTab">网络影视指数</navigator>
+<navigator url="/pages/index/index?id=ad" open-type="switchTab">网络广告指数</navigator> -->
+
+<view data-id='app' hover-class="" bindtap='switchTabIndex'>移动APP指数</view>
+<view data-id='pc' bindtap='switchTabIndex'>PC Web指数</view>
+<view data-id='video' bindtap='switchTabIndex'>网络影视指数</view>
+<view data-id='ad' bindtap='switchTabIndex'>网络广告指数</view>
+<view data-id='device' bindtap='switchTabIndex'>移动设备指数</view>
+<view data-id='channel' bindtap='switchTabIndex'>移动渠道指数</view>
+<view data-id='overseas' bindtap='switchTabIndex'>海外APP指数</view>
+<view data-id='wxdata' bindtap='switchTabIndex'>新媒体指数</view>
+
+<view class="gototop {{floorstatus?'active':''}}" bindtap="goToTop"></view>

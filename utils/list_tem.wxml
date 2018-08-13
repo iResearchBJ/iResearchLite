@@ -1,0 +1,35 @@
+<template name="list">
+<view class="block-list">
+    <navigator class="block-item" wx:for="{{list}}" wx:key="{{item.NewsId}}" url="{{url}}?id={{item.NewsId}}&pid={{pid}}">
+      <view class="block-item-left">
+        <image wx:if="{{item.SmallImg?true:false}}"  class="block-item-pic" mode="widthFix" src="{{item.SmallImg}}"/>
+      </view>
+      <view class="block-item-right">
+        <text class="block-item-name">{{item.Title}}</text>
+        <text class="block-item-time">{{item.Uptime}}</text>
+      </view>
+    </navigator>
+  </view>
+  </template>
+
+  <template name="slist">
+<view class="block-list">
+    <navigator class="block-item" wx:for="{{list}}" wx:key="{{item.id}}" url="{{url}}?id={{item.id}}&pid={{pid}}">
+      <view class="block-item-left">
+        <image wx:if="{{item.pic?true:false}}"  class="block-item-pic" mode="widthFix" src="{{item.pic}}"/>
+      </view>
+      <view class="block-item-right">
+        <text class="block-item-name">{{item.title}}</text>
+        <text class="block-item-time">{{item.uptime}}</text>
+      </view>
+    </navigator>
+  </view>
+  </template>
+ <template name="mynav">
+  <view class="foot-nav">
+    <navigator open-type="switchTab" wx:for="{{tabBar.list}}" wx:key="{{item.id}}" url="{{item.pagePath}}">
+      <image mode="widthFix" src="{{index==pageId?item.selectedIconPath:item.iconPath}}"></image>
+      <text style="color:{{index==pageId?tabBar.selectedColor:tabBar.color}}">{{item.text}}</text>
+    </navigator>
+</view>
+</template>
