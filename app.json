@@ -1,8 +1,9 @@
 {
   "pages": [
     
-    "pages/index/index",
+   
     "pages/indexList/indexList",
+    "pages/index/index",
     "pages/news/news",
     "pages/report/report",
     "pages/research/research",
@@ -42,7 +43,7 @@
       },
       {
         "pagePath": "pages/research/research",
-        "text": "数据观点",
+        "text": "艾瑞观点",
         "iconPath": "images/icon-yjgd.png",
         "selectedIconPath": "images/icon-yjgd-active.png"
       },

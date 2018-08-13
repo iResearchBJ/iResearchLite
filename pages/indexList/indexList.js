@@ -3,7 +3,71 @@ var app = getApp();
 
 Page({
   data: {
-    
+  //   < view class= 'item' data-id='pc' bindtap = 'switchTabIndex' > PC Web指数</ view >
+  // <view class='item' data - id='video' bindtap = 'switchTabIndex' > 网络影视指数 < /view>
+  // < view class= 'item' data - id='ad' bindtap = 'switchTabIndex' > 网络广告指数 < /view>
+  // < view class= 'item' data - id='device' bindtap = 'switchTabIndex' > 移动设备指数 < /view>
+  // < view class= 'item' data - id='channel' bindtap = 'switchTabIndex' > 移动渠道指数 < /view>
+  // < view class= 'item' data - id='overseas' bindtap = 'switchTabIndex' > 海外APP指数 < /view>
+  // < view class= 'item' data - id='wxdata' bindtap = 'switchTabIndex' > 新媒体指数 < /view>
+    list:[
+      {
+        id:'app',
+        nameZh:'移动APP指数',
+        nameEn:'Mobile App Index',
+        ico:'/images/index/1.png',
+        isHidden: false
+      },
+      {
+        id: 'pc',
+        nameZh: 'PC Web指数',
+        nameEn: 'PC Web Index',
+        ico: '/images/index/2.png',
+        isHidden: false
+      },
+      {
+        id: 'video',
+        nameZh: '网络影视指数',
+        nameEn: 'Online Video Index',
+        ico: '/images/index/3.png',
+        isHidden: false
+      },
+      {
+        id: 'ad',
+        nameZh: '网络广告指数',
+        nameEn: 'Online Advertising Index',
+        ico: '/images/index/4.png',
+        isHidden: false
+      },
+      {
+        id: 'device',
+        nameZh: '移动设备指数',
+        nameEn: 'Mobile Device Index',
+        ico: '/images/index/5.png',
+        isHidden: false
+      },
+      {
+        id: 'channel',
+        nameZh: '移动渠道指数',
+        nameEn: 'Mobile Store Index',
+        ico: '/images/index/6.png',
+        isHidden: false
+      },
+      {
+        id: 'overseas',
+        nameZh: '海外APP指数',
+        nameEn: 'Overseas Mobile App Index',
+        ico: '/images/index/7.png',
+        isHidden: true
+      },
+      {
+        id: 'wxdata',
+        nameZh: '新媒体指数',
+        nameEn: 'New Media Index',
+        ico: '/images/index/8.png',
+        isHidden: false
+      }
+    ]
   },
   onShareAppMessage: function() {
     return {

@@ -35,10 +35,10 @@ Page({
         id: "channel",
         name: "移动渠道指数"
       },
-      {
-        id: "overseas",
-        name: "海外APP指数"
-      }
+      // {
+      //   id: "overseas",
+      //   name: "海外APP指数"
+      // }
       
     ],
     curIndexTab: null,
