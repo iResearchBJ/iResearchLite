@@ -1,4 +1,4 @@
-<!--艾瑞指数-->
+<!--指数-->
 <!--8888999-->
 <wxs module="common" src="../../utils/common.wxs"></wxs>
 <view class="container page-{{curIndexTab.id}}" style="height:{{winHeight}}px">
