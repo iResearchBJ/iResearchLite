@@ -216,12 +216,14 @@ background-color: #d8d8d8;
 
 
 
-.indexListBox { position: fixed; left: 0; right: 0; top: 0; bottom: 0; margin: auto; z-index: 99999; background-color: #f7f7f7; overflow-y: auto;-webkit-overflow-scrolling:touch;
+.indexListBox { position: fixed; left: 0; right: 0; top: 0; bottom: 0; margin: auto; z-index: 99999; background-color: #f7f7f7; 
+/* overflow-y: auto;-webkit-overflow-scrolling:touch; */
 -webkit-transform: translate3d(0,0,0);
 transform: translate3d(0,0,0);
 -webkit-transition: all 500ms;
 transition: all 500ms;
 }
+.scrollBox { height: 100%;}
 
 .indexListBox.hidden {
   -webkit-transform: scale(0.001);

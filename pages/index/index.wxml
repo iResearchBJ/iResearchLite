@@ -87,6 +87,7 @@
 
 
       <view class='indexListBox {{isIndexListHide?"hidden":""}}'>
+      <scroll-view class='scrollBox' scroll-y="true" scroll-with-animation="true">
         <view class='index-links-list'>
           <block wx:for="{{homeIndexList}}" wx-if="{{!item.isHidden}}">
             <view class='item item-{{item.id}} {{item.isHidden?"hide":""}}'>
@@ -100,6 +101,7 @@
             </view>
           </block>
         </view>
+        </scroll-view>
       </view>
 
 
