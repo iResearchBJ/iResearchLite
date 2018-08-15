@@ -1,9 +1,9 @@
 {
   "pages": [
     
-   
+      "pages/index/index",
     "pages/indexList/indexList",
-    "pages/index/index",
+
     "pages/news/news",
     "pages/report/report",
     "pages/research/research",

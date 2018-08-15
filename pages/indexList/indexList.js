@@ -3,13 +3,6 @@ var app = getApp();
 
 Page({
   data: {
-  //   < view class= 'item' data-id='pc' bindtap = 'switchTabIndex' > PC Web指数</ view >
-  // <view class='item' data - id='video' bindtap = 'switchTabIndex' > 网络影视指数 < /view>
-  // < view class= 'item' data - id='ad' bindtap = 'switchTabIndex' > 网络广告指数 < /view>
-  // < view class= 'item' data - id='device' bindtap = 'switchTabIndex' > 移动设备指数 < /view>
-  // < view class= 'item' data - id='channel' bindtap = 'switchTabIndex' > 移动渠道指数 < /view>
-  // < view class= 'item' data - id='overseas' bindtap = 'switchTabIndex' > 海外APP指数 < /view>
-  // < view class= 'item' data - id='wxdata' bindtap = 'switchTabIndex' > 新媒体指数 < /view>
     list:[
       {
         id:'app',

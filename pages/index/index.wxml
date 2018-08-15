@@ -75,11 +75,37 @@
       </form>
     </view>
 
-    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" scroll-with-animation="true">
-      <view wx:for="{{indexTabList}}" class="tab-item {{curIndexTab.id==item.id?'active':''}}" hover-class="tab-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichIndexTab">
-        {{item.name}}
+    <view class='hd-tab'>
+      <view class='box'>
+        <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" scroll-with-animation="true">
+        <view wx:for="{{indexTabList}}" class="tab-item {{curIndexTab.id==item.id?'active':''}}" hover-class="tab-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichIndexTab">
+          {{item.name}}
+        </view>
+      </scroll-view>
       </view>
-    </scroll-view>
+      <view class='btn-all' hover-class='btn-all-hover' bindtap='indexListShow'><view class='in'>全部</view></view>
+
+
+      <view class='indexListBox {{isIndexListHide?"hidden":""}}'>
+        <view class='index-links-list'>
+          <block wx:for="{{homeIndexList}}" wx-if="{{!item.isHidden}}">
+            <view class='item item-{{item.id}} {{item.isHidden?"hide":""}}'>
+              <view class='in' data-id='{{item.id}}' hover-class="hover" bindtap='switchTabIndex'>
+                <view class='icoBox'><image class='ico' mode='widthFix' src='{{item.ico}}'></image></view>
+                <view class='name'>
+                  <view class='zh'>{{item.nameZh}}</view>
+                  <view class='en'>{{item.nameEn}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+
+
+
+    </view>
+    
 
     
 
@@ -769,5 +795,7 @@
   <view class="index-mask {{curFilterTab!=null?'active':''}}" bindtap="maskToggle" style="height:{{winHeight}}px"></view>
 
 </view>
+
+
 
 <view class="gototop {{floorstatus?'active':''}}" bindtap="goToTop"></view>
