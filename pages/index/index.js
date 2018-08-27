@@ -113,11 +113,11 @@ Page({
       {
         id: "appTime",
         name: ""
-      },
+      }/*,
       {
         id: "appDimension",
         name: ""
-      }
+      }*/
     ],
     appKeyword:"",
     appClassList: [],
@@ -130,17 +130,17 @@ Page({
     curAppTime: null,
     appDimensionList: [
       {
+        id: 2,
+        name: "月度独立设备(万台)"
+      }/*,
+      {
         id: 10,
         name: "日均独立设备(万)"
       },
       {
-        id: 2,
-        name: "月度独立设备(万)"
-      },
-      {
         id: 6,
         name: "月度总有效时长(万)"
-      }
+      }*/
     ],
     curAppDimension: null,
     appPageIndex: 1,
@@ -158,11 +158,11 @@ Page({
       {
         id: "pcTime",
         name: ""
-      },
+      }/*,
       {
         id: "pcDimension",
         name: ""
-      }
+      }*/
     ],
     pcKeyword: "",
     pcAllClassList:[],
@@ -176,17 +176,17 @@ Page({
     curPcTime: null,
     pcDimensionList: [
       {
+        id: 2,
+        name: "月度覆盖人数(万人)"
+      }/*,
+      {
         id: 10,
         name: "日均覆盖人数(万)"
       },
       {
-        id: 2,
-        name: "月度覆盖人数(万)"
-      },
-      {
         id: 6,
         name: "月度浏览时间(万)"
-      }
+      }*/
     ],
     curPcDimension: null,
     pcPageIndex: 1,
@@ -658,8 +658,8 @@ Page({
             curAppTime: appTimeList[0],
             curAppDimension: $this.data.appDimensionList[0],
             'appFilterList[0].name': appClassList[0].ClassName,
-            'appFilterList[1].name': appTimeList[0].TimeName,
-            'appFilterList[2].name': $this.data.appDimensionList[0].name
+            'appFilterList[1].name': appTimeList[0].TimeName
+            //'appFilterList[2].name': $this.data.appDimensionList[0].name
           })
           $this.getAppData();
         }, null, null)
@@ -956,8 +956,8 @@ Page({
             curPcTime: pcTimeList[0],
             curPcDimension: $this.data.pcDimensionList[0],
             'pcFilterList[0].name': pcClassList[0].Name,
-            'pcFilterList[1].name': pcTimeList[0].TimeName,
-            'pcFilterList[2].name': $this.data.pcDimensionList[0].name
+            'pcFilterList[1].name': pcTimeList[0].TimeName
+            //'pcFilterList[2].name': $this.data.pcDimensionList[0].name
           })
           $this.getPcData();
         }, null, null)

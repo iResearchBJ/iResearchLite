@@ -134,7 +134,7 @@
           </view>
         </view>
 
-        <view class="index-filter-menu {{curFilterTab.id=='appDimension'?'active':''}}">
+        <view class="index-filter-menu">
           <view wx:for="{{appDimensionList}}" class="index-filter-menu-item {{curAppDimension.id==item.id?'active':''}}" bindtap='changeAppDimension' data-data='{{item}}'>
             <text>{{item.name}}</text>
           </view>
