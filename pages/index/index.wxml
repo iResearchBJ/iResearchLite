@@ -437,13 +437,13 @@
         <text class="index-list-hd-th">排名</text>
         <text class="index-list-hd-th">微信公众号</text>
         <text class="index-list-hd-th">类别</text>
-        <text class="index-list-hd-th">设备覆盖指数</text>
+        <text class="index-list-hd-th">活跃设备数</text>
       </block>
       <block wx:if="{{curIndexTab.id == 'wxdata' && curWxdataMenuId == '1'}}">
         <text class="index-list-hd-th">排名</text>
         <text class="index-list-hd-th">微信小程序</text>
         <text class="index-list-hd-th">类别</text>
-        <text class="index-list-hd-th">设备覆盖指数</text>
+        <text class="index-list-hd-th">活跃设备指数</text>
       </block>
     </view>
   </view>
