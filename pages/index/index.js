@@ -55,21 +55,21 @@ Page({
         nameEn: 'Overseas Mobile App Index',
         ico: '/images/index/7.png',
         isHidden: true
-      },
-      {
-        id: 'wxdata',
-        nameZh: '新媒体指数',
-        nameEn: 'New Media Index',
-        ico: '/images/index/8.png',
-        isHidden: false
       }
+     // {
+     //   id: 'wxdata',
+     //   nameZh: '新媒体指数',
+     //   nameEn: 'New Media Index',
+     //   ico: '/images/index/8.png',
+      //  isHidden: false
+     // }
     ],
 
     indexTabList: [
-      {
-        id: "wxdata",
-        name: "新媒体指数"
-      },
+      //{
+      //  id: "wxdata",
+      //  name: "新媒体指数"
+      //},
       {
         id: "app",
         name: "移动APP指数"
@@ -93,7 +93,7 @@ Page({
       {
         id: "channel",
         name: "移动渠道指数"
-      },
+      }
       // {
       //   id: "overseas",
       //   name: "海外APP指数"

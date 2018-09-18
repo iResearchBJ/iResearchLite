@@ -451,83 +451,7 @@
   <view class='index-bd'>
 
     <swiper class="tab-content" current="{{curIndexTabs}}" duration="300" bindchange="switchSwiper">
-    <!--wxdata-->
-      <swiper-item>
-
-        <scroll-view wx:if="{{curWxdataMenuId == '0'}}" scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextWxdataData">
-           <block wx:for="{{wxdataDataList}}"> 
-           <navigator url="/pages/indexDetails/indexDetails?wxdataID={{common.myencodeURIComponent(item.wxbiz)}}&types=wxdata" hover-class="navigator-hover">
-            <view class='index-list-item'>
-              <view class='col'>
-                <text class='nub'>{{index+1}}</text>
-              </view> 
-
-              <view class='col'>
-                <view class='index-name'>
-                  <view class='ico-logo'>
-                    <!-- <image class="ico-app" src="{{item.logo}}"></image> -->
-                    <view class="ico-app-img" style='background-image: url({{item.logo}})'></view>
-                  </view>
-                  <view class='info'>
-                    <text class='tit'>{{item.wxName}}</text>
-                    <text class='desc'></text>
-                  </view>
-                </view>
-              </view> 
-              <view class='col'>
-                <view class='tit-sort'>
-                  {{item.kClassName}}
-                </view>
-              </view>
-              <view class='col'>
-                <view class='rate'>
-                  {{item.dataNum}}
-                </view>
-              </view>
-            </view>
-            </navigator>
-           </block> 
-          <view class="list-loading" wx:if="{{wxdataDataLoading}}">{{wxdataLoadName}}</view>
-        </scroll-view>
-
-        <scroll-view wx:if="{{curWxdataMenuId == '1'}}" scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextMindataData">
-           <block wx:for="{{mindataDataList}}"> 
-           <!-- <navigator url="/pages/indexDetails/indexDetails?wxdataID={{common.myencodeURIComponent(item.wxbiz)}}&types=wxdata" hover-class="navigator-hover"> -->
-            <view class='index-list-item'>
-              <view class='col'>
-                <text class='nub'>{{index+1}}</text>
-              </view> 
-
-              <view class='col'>
-                <view class='index-name'>
-                  <view class='ico-logo'>
-                    <image class="ico-app" src="{{item.wx_logo}}"></image>
-                    <!-- <view class="ico-app-img" style='background-image: url({{item.wx_logo}})'></view> -->
-                  </view>
-                  <view class='info'>
-                    <text class='tit'>{{item.wx_name}}</text>
-                    <text class='desc'></text>
-                  </view>
-                </view>
-              </view> 
-              <view class='col'>
-                <view class='tit-sort'>
-                <text class='tit-sort-b'>{{item.wx_categoryname}}</text>
-                <text class='tit-sort-s'>{{item.wx_classname}}</text>
-                  
-                </view>
-              </view>
-              <view class='col'>
-                <view class='rate'>
-                  {{item.uv}}
-                </view>
-              </view>
-            </view>
-            <!-- </navigator> -->
-           </block> 
-          <view class="list-loading" wx:if="{{mindataDataLoading}}">{{mindataLoadName}}</view>
-        </scroll-view>
-      </swiper-item>
+   
 
 
       <!--app-->
@@ -747,6 +671,83 @@
             </navigator>
            </block> 
           <view class="list-loading" wx:if="{{channelDataLoading}}">{{channelLoadName}}</view>
+        </scroll-view>
+      </swiper-item>
+       <!--wxdata-->
+      <swiper-item>
+
+        <scroll-view wx:if="{{curIndexTab.id == 'wxdata' &&curWxdataMenuId == '0'}}" scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextWxdataData">
+           <block wx:for="{{wxdataDataList}}"> 
+           <navigator url="/pages/indexDetails/indexDetails?wxdataID={{common.myencodeURIComponent(item.wxbiz)}}&types=wxdata" hover-class="navigator-hover">
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view> 
+
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='ico-logo'>
+                    <!-- <image class="ico-app" src="{{item.logo}}"></image> -->
+                    <view class="ico-app-img" style='background-image: url({{item.logo}})'></view>
+                  </view>
+                  <view class='info'>
+                    <text class='tit'>{{item.wxName}}</text>
+                    <text class='desc'></text>
+                  </view>
+                </view>
+              </view> 
+              <view class='col'>
+                <view class='tit-sort'>
+                  {{item.kClassName}}
+                </view>
+              </view>
+              <view class='col'>
+                <view class='rate'>
+                  {{item.dataNum}}
+                </view>
+              </view>
+            </view>
+            </navigator>
+           </block> 
+          <view class="list-loading" wx:if="{{wxdataDataLoading}}">{{wxdataLoadName}}</view>
+        </scroll-view>
+
+        <scroll-view wx:if="{{curIndexTab.id == 'wxdata' &&curWxdataMenuId == '1'}}" scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextMindataData">
+           <block wx:for="{{mindataDataList}}"> 
+           <!-- <navigator url="/pages/indexDetails/indexDetails?wxdataID={{common.myencodeURIComponent(item.wxbiz)}}&types=wxdata" hover-class="navigator-hover"> -->
+            <view class='index-list-item'>
+              <view class='col'>
+                <text class='nub'>{{index+1}}</text>
+              </view> 
+
+              <view class='col'>
+                <view class='index-name'>
+                  <view class='ico-logo'>
+                    <image class="ico-app" src="{{item.wx_logo}}"></image>
+                    <!-- <view class="ico-app-img" style='background-image: url({{item.wx_logo}})'></view> -->
+                  </view>
+                  <view class='info'>
+                    <text class='tit'>{{item.wx_name}}</text>
+                    <text class='desc'></text>
+                  </view>
+                </view>
+              </view> 
+              <view class='col'>
+                <view class='tit-sort'>
+                <text class='tit-sort-b'>{{item.wx_categoryname}}</text>
+                <text class='tit-sort-s'>{{item.wx_classname}}</text>
+                  
+                </view>
+              </view>
+              <view class='col'>
+                <view class='rate'>
+                  {{item.uv}}
+                </view>
+              </view>
+            </view>
+            <!-- </navigator> -->
+           </block> 
+          <view class="list-loading" wx:if="{{mindataDataLoading}}">{{mindataLoadName}}</view>
         </scroll-view>
       </swiper-item>
       <!--overseas-->
