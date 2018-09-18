@@ -674,7 +674,7 @@
         </scroll-view>
       </swiper-item>
        <!--wxdata-->
-      <swiper-item>
+      <!--<swiper-item>
 
         <scroll-view wx:if="{{curIndexTab.id == 'wxdata' &&curWxdataMenuId == '0'}}" scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextWxdataData">
            <block wx:for="{{wxdataDataList}}"> 
@@ -687,7 +687,7 @@
               <view class='col'>
                 <view class='index-name'>
                   <view class='ico-logo'>
-                    <!-- <image class="ico-app" src="{{item.logo}}"></image> -->
+                    
                     <view class="ico-app-img" style='background-image: url({{item.logo}})'></view>
                   </view>
                   <view class='info'>
@@ -714,7 +714,7 @@
 
         <scroll-view wx:if="{{curIndexTab.id == 'wxdata' &&curWxdataMenuId == '1'}}" scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextMindataData">
            <block wx:for="{{mindataDataList}}"> 
-           <!-- <navigator url="/pages/indexDetails/indexDetails?wxdataID={{common.myencodeURIComponent(item.wxbiz)}}&types=wxdata" hover-class="navigator-hover"> -->
+          
             <view class='index-list-item'>
               <view class='col'>
                 <text class='nub'>{{index+1}}</text>
@@ -724,7 +724,7 @@
                 <view class='index-name'>
                   <view class='ico-logo'>
                     <image class="ico-app" src="{{item.wx_logo}}"></image>
-                    <!-- <view class="ico-app-img" style='background-image: url({{item.wx_logo}})'></view> -->
+                   
                   </view>
                   <view class='info'>
                     <text class='tit'>{{item.wx_name}}</text>
@@ -745,11 +745,11 @@
                 </view>
               </view>
             </view>
-            <!-- </navigator> -->
+           
            </block> 
           <view class="list-loading" wx:if="{{mindataDataLoading}}">{{mindataLoadName}}</view>
         </scroll-view>
-      </swiper-item>
+      </swiper-item>-->
       <!--overseas-->
       <!-- <swiper-item>
         <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextOverseasData">
