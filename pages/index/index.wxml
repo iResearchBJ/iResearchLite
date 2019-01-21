@@ -265,12 +265,18 @@
         <view wx:for="{{overseasFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
           <text class='ico'>{{item.name}}</text>
         </view>
-        <view class="index-filter-menu {{curFilterTab.id=='overseasClass'?'active':''}}">
-          <view wx:for="{{overseasClassList}}" class="index-filter-menu-item {{curOverseasClass.ID==item.ID?'active':''}}" bindtap='changeOverseasClass' data-data='{{item}}'>
+
+        <view class="index-filter-menu index-filter-menu-app {{curFilterTab.id=='overseasClass'?'active':''}}">
+          <view wx:for="{{overseasClassList}}" class="index-filter-menu-item {{curOverseasClass.ID==item.ID?'active':''}}" bindtap='changeOverseasFClass' data-data='{{item}}'>
             <text>{{item.className}}</text>
           </view>
         </view>
 
+ <view class="index-filter-menu index-filter-menu-app-child {{(curFilterTab.id=='overseasClass'&&curOverseasClass.ID!=0)?'active':''}}">
+          <view wx:for="{{overseasSecondClassList}}" class="index-filter-menu-item {{curOverseasSecondClass.ID==item.ID?'active':''}}" bindtap='changeOverseasClass' data-data='{{item}}'>
+            <text>{{item.className}}</text>
+          </view>
+        </view>
         
 
         <view class="index-filter-menu {{curFilterTab.id=='overseasTime'?'active':''}}">
@@ -751,7 +757,7 @@
         </scroll-view>
       </swiper-item>-->
       <!--overseas-->
-      <!-- <swiper-item>
+       <swiper-item>
         <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextOverseasData">
 
            <block wx:for="{{OverseasDataList}}"> 
@@ -785,7 +791,7 @@
            </block> 
           <view class="list-loading" wx:if="{{overseasDataLoading}}">{{overseasLoadName}}</view>
         </scroll-view>
-      </swiper-item> -->
+      </swiper-item>
 
 
 

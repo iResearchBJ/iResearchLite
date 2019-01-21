@@ -54,7 +54,7 @@ Page({
         nameZh: '海外APP指数',
         nameEn: 'Overseas Mobile App Index',
         ico: '/images/index/7.png',
-        isHidden: true
+        isHidden: false
       }
      // {
      //   id: 'wxdata',
@@ -400,11 +400,12 @@ Page({
         name: ""
       }
     ],
+    allOverseasClasslist:[],
     overseasKeyword: "",
     overseasClassList: [],
     curOverseasClass: null,
+    curOverseasSecondClass:[],
     overseasSecondClassList: [],
-    curOverseasSecondClass: null,
     curOverseasClassId: 0,
     curOverseasClassLevel: 1,
     overseasTimeList: [],
@@ -2441,7 +2442,13 @@ Page({
     var $this = this;
     if($this.data.overseasClassList.length<=0){
       $this.getOverseasClass(function(res){
-        var overseasClassList = res.data;
+        var allOverseasClasslist = res.data;
+        $this.setData({
+          allOverseasClasslist: allOverseasClasslist
+        });
+        var overseasClassList = allOverseasClasslist.filter(function(item){
+          return item.rootID == 0;
+        });
         $this.getOverseasTime(function(resp){
           var overseasTimeList=resp.data;
           $this.getOverseasOverseas(function(respo){
@@ -2550,10 +2557,14 @@ getoverseasData: function () {
     overseasKeyword: '',
     overseasLoadName: "努力加载中。。。"
   });
+  var requestClassid=0;
+  if($this.data.curOverseasClass.ID!=0){
+    requestClassid=$this.data.curOverseasSecondClass.ID;
+  }
   wx.request({
     url: 'https://api.iresearch.cn/api/OverSeas/GetOverseasData/',
     data:{
-      Classid: $this.data.curOverseasClass.ID,
+      Classid: requestClassid,
       CountryName: $this.data.curOverseasOverseas.code,
       Timer: $this.data.curOverseasTime.timeID,
       pageIndex: $this.data.overseasPageIndex,
@@ -2654,16 +2665,39 @@ getoverseasData: function () {
     }
   },
   //海外指数改变类事件
+
+  changeOverseasFClass:function(e){
+    var $this = this;
+    var data = e.currentTarget.dataset.data;
+    if(data.ID==0){
+      $this.changeOverseasClass(e);
+    }else{
+      var alllist=$this.data.allOverseasClasslist;
+      $this.setData({
+        curOverseasClass:data,
+        overseasSecondClassList:alllist.filter(function(item){
+          return item.rootID==data.ID;
+        })
+
+      });
+      
+    }
+  },
   changeOverseasClass: function (e) {
     var $this = this;
     var data = e.currentTarget.dataset.data;
-    
+    var curFclass=[];
+    if(data.ID==0){
+      curFclass={ID:0};
+    }else{
+      curFclass=$this.data.curOverseasClass;
+    }
       $this.setData({
         scrolltop: 0,
         curFilterTab: null,
         overseasPageIndex: 1,
-        curOverseasClass: data,
-        curOverseasSecondClass: { ID: 0 },
+        curOverseasClass: curFclass,
+        curOverseasSecondClass: data,
         curOverseasClassId: data.ID,
         curOverseasClassLevel: 1,
         'overseasFilterList[0].name': data.className
