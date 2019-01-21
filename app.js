@@ -28,7 +28,7 @@ App({
     userInfo:null,
     reportDownList:[],
     reportDownLoadCallback:null,
-    indexId:'wxdata'
+    indexId:'app'
   },
   // 获取滚动条当前位置
   onPageScroll: function (e) {
