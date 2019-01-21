@@ -93,11 +93,11 @@ Page({
       {
         id: "channel",
         name: "移动渠道指数"
-      }
-      // {
-      //   id: "overseas",
-      //   name: "海外APP指数"
-      // }
+      },
+       {
+         id: "overseas",
+         name: "海外APP指数"
+       }
       
     ],
     curIndexTab: null,
@@ -628,7 +628,7 @@ Page({
     }
   },
   switchWxdataIndexAll: function(){
-    console.log(999999999)
+    //console.log(999999999)
     switch (this.data.curWxdataMenuId) {
       case "0":
         this.switchWxdataIndex();
@@ -3229,7 +3229,7 @@ getoverseasData: function () {
     var $this = this;
     var data = e.currentTarget.dataset.data;
 
-    console.log(data)
+   // console.log(data)
     if (data.ID == 0) {
       $this.setData({
         scrolltop: 0,
@@ -3257,7 +3257,7 @@ getoverseasData: function () {
   changeWxdataTime: function (e) {
     var $this = this;
     var data = e.currentTarget.dataset.data;
-    console.log(data)
+   // console.log(data)
     $this.setData({
       scrolltop: 0,
       curFilterTab: null,
@@ -3274,7 +3274,7 @@ getoverseasData: function () {
   changeWxdataMenu: function(e){
     var $this = this;
     var data = e.currentTarget.dataset.data;
-    console.log(data)
+   // console.log(data)
 
     switch (data.id) {
       case "0":
@@ -3575,8 +3575,22 @@ getoverseasData: function () {
     if (w1 != 1) d1 = 7 - w1 + 2;
     else d1 = 1;
     var week_count = Math.ceil((dd - d1 + 1) / 7);
+    if (month == 12) {
+      if (week_count > 4) {
+        week_count = week_count - 1;
+      }
+    }
     //document.write(year + "年" + month + "月有" + week_count +"周");
     var zhou_arr = [];
+    if (month == 1 && w1 != 1) {
+      d.setFullYear(year, month - 1, 1);
+      d.setDate(0 - w1 + 2);
+      var f_from = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+      d.setFullYear(year, month - 1, 1);
+      d.setDate(7 - w1 + 1);
+      var f_to = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+      zhou_arr.unshift(f_from + "|" + f_to);
+    }
     for (var i = 0; i < week_count; i++) {
       var monday = d1 + i * 7;
       var sunday = monday + 6;

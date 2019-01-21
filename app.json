@@ -19,7 +19,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#09bb07",
     "navigationBarTitleText": "艾瑞报告",
-    "navigationBarTextStyle": "#fff",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#f5f5f5",
     "enablePullDownRefresh": false
   },
