@@ -436,8 +436,8 @@
       <block wx:if="{{curIndexTab.id == 'overseas'}}">
         <text class="index-list-hd-th">排名</text>
         <text class="index-list-hd-th">应用</text>
-        <text class="index-list-hd-th">活跃参透率(%)</text>
-        <text class="index-list-hd-th">人均打开次数</text>
+        <text class="index-list-hd-th">活性(%)</text>
+        <text class="index-list-hd-th">日人均打开次数</text>
       </block>
       <block wx:if="{{curIndexTab.id == 'wxdata' && curWxdataMenuId == '0'}}">
         <text class="index-list-hd-th">排名</text>

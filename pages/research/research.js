@@ -60,6 +60,7 @@ Page({
         "Content-Type": "application/json"
       }, // 设置请求的 header
       success: function(res) {
+        wx.stopPullDownRefresh();
         if (res.data.length > 0) {
           
           _this.setData({
@@ -123,7 +124,13 @@ Page({
 
 
   onPullDownRefresh: function() { //下拉刷新
-
+    var _this=this;
+    _this.setData({
+      "nlist.list": [],
+      page: 0, //分页
+      lastid: '0'
+    });
+    this.fetchConferenceData();
   }
 
 });

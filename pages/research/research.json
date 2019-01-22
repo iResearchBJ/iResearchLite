@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "艾瑞观点"
+    "navigationBarTitleText": "艾瑞观点",
+    "enablePullDownRefresh": true
 }
