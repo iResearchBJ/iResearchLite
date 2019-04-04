@@ -420,7 +420,7 @@
       <block wx:if="{{curIndexTab.id == 'ad'}}">
         <text class="index-list-hd-th">排名</text>
         <text class="index-list-hd-th">名称</text>
-        <text class="index-list-hd-th">费用指数</text>
+        <text class="index-list-hd-th">投入指数</text>
       </block>
       <block wx:if="{{curIndexTab.id == 'device'}}">
         <text class="index-list-hd-th">排名</text>
