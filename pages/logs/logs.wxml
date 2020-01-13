@@ -13,4 +13,6 @@
 
 <view  class="container">
  <template is="slist" data="{{...nlist}}"/>
+ <!-- loadName -->
+ <view wx:if="{{nlist.list.length == 0}}" class='load'>{{loadName}}</view>
 </view>

@@ -33,7 +33,7 @@
 
 .search { padding: 20rpx 30rpx; background-color: #efeff4; border-bottom: #d6d6db solid 1px;}
 .search .in {display: flex;  flex-direction: row; position: relative;}
-.search .ico { position: absolute; top: 16rpx; left: 10rpx;}
+/* .search .ico { position: absolute; top: 16rpx; left: 10rpx;} */
 .search .ipt { flex: 1; background-color: #fff; border: #eaeaef solid 1px; border-radius: 4px; padding: 0 54rpx; height: 60rpx;}
 .search .btn { line-height: 62rpx; color: #00c203; background-color: transparent; margin-right: -30rpx;}
 .search .btn::after { display: none;}
@@ -70,13 +70,25 @@ height: 42.4vw;
 .list-item:not(.picRight) + .list-item.picRight::before,
 .list-item.picRight:first-child::before { display: none;}
 
-.search { border: 0;}
-.search .ipt { text-align: center; font-size: .8rem; height: 1.7rem; transition: all 300ms;}
-.search .ico { width: 16px; height: 16px;  top: 0; bottom: 0; margin: auto; left: 36vw; z-index: 10;}
-.search .ipt.focus { text-align: left; padding-left: 2rem;}
-.search .focus + .ico { left: .7rem;}
+/* .search { border: 0;}
+.search .ipt { text-align: left; font-size: .8rem; height: 1.7rem; }
+.search .ico { width: 16px; height: 16px;  top: 0; bottom: 0; margin: auto; left: 36vw; z-index: 10; }
+.search .value { position: absolute; width: 100%; height: 100%; text-align: center; line-height: 1.7rem; font-size: .8rem; color: #84838a; z-index: 5; pointer-events: none;}
+.search .value .ico { opacity: 1; display: inline-block; vertical-align: middle; position: static;}
+.search .value .txt { display: inline-block; vertical-align: middle; margin-left: .5em;}
+.search .ipt.focus,
+.search .ipt:focus { text-align: left; padding-left: 2rem; color: #333;}
+.search .focus + .ico,
+.search .ipt:focus + .ico { left: .7rem; opacity: 1;}
+.search .focus + .ico + .value,
+.search .ipt:focus + .ico + .value { display: none;} */
 
-.placeholder { color: #84838a;}
+
+/* .placeholder { color: #84838a;}
+.search .ipt.focus.placeholder,
+.search .ipt:focus.placeholder {display: block;} */
+
+.placeholder { opacity: .5;}
 
 .load { text-align: center; padding: .8rem;}
 

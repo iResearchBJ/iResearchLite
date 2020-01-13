@@ -5,8 +5,12 @@
 <form bindsubmit="" bindreset="">
    <view class="search">
     <view class="in">
-      <input class="ipt {{isSearchFocus?'focus':''}}" name="skey"  bindinput='researchserch' bindfocus="bindfocus" bindblur="bindblur" bindconfirm="bindSearch"  type="text" placeholder="搜索" placeholder-class="placeholder" />
+      <input class="ipt {{isSearchFocus?'focus':''}}" name="skey"  bindinput='researchserch' bindfocus="bindfocus" bindblur="bindblur" bindconfirm="bindSearch"  type="text" placeholder="搜索" placeholder-class="placeholder" value="{{keyword}}" />
       <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='searchs'></icon>
+      <!-- <view class="value">
+        <icon class="ico" size="16" color="#b2b2b2" type="search" bindtap='searchs'></icon>
+        <text class="txt">{{keyword?keyword:'搜索'}}</text>
+      </view> -->
     </view>
   </view> 
 </form>

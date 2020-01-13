@@ -40,10 +40,19 @@ Page({
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
       success: function(res){
-        _this.setData({
-          'nlist.list':res.data,
-          isHiddenLoading:true
-        })
+        if (res.data.length > 0) {
+          _this.setData({
+            'nlist.list':res.data,
+            isHiddenLoading:true
+          })
+        }else{
+          _this.setData({
+            'nlist.list': [],
+            isHiddenLoading:true,
+            loadName: "暂无搜索数据!"
+          })
+        }
+        
       },
       fail: function() {
         // fail
@@ -52,12 +61,13 @@ Page({
         // complete
       }
     })
+    
   },
   sumit:function(e){
       var key=e.detail.value;
-       if(!key){
-      return;
-    }
+      if(!key){
+        return;
+      }
       this.setData({key:key});
       this.search();
   }

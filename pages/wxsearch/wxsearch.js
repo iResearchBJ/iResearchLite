@@ -7,16 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    keyword:''
+    keyword:'',
+    isHiddenLoading:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('搜索')
     this.setData({
       keyword: options.keyWord,
-      
     });
     wx.showNavigationBarLoading(); //显示页面加载中状态
     this.getsearchserch();
@@ -55,6 +56,9 @@ Page({
       }, // 设置请求的 header
       success: function (res) {
         wx.hideNavigationBarLoading();
+        _this.setData({
+          isHiddenLoading: true
+        });
         if (res.data.length > 0) {
           _this.setData({
             'nlist.list': res.data,
@@ -65,7 +69,7 @@ Page({
         } else {
           _this.setData({
             'nlist.list': [],
-            loadName: "没有了"
+            loadName: "暂无搜索数据!"
           })
         }
         //this.data.reportlist=res.data;
