@@ -1,7 +1,7 @@
 {
   "pages": [
     
-      "pages/index/index",
+    "pages/index/index",
     "pages/indexList/indexList",
 
     "pages/news/news",
@@ -14,6 +14,7 @@
     "pages/downList/downList",
     "pages/indexDetails/indexDetails",
     "pages/wxsearch/wxsearch"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

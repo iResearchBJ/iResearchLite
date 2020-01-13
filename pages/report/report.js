@@ -14,7 +14,8 @@ Page({
     height:0,
     loadName:"努力加载中。。。",
     rootid:'8',
-    lastid:'0'
+    lastid:'0',
+    key:''
   },
   onShareAppMessage: function () {
     return {
@@ -96,6 +97,7 @@ sumit:function(e){
     wx.navigateTo({
       url: '../logs/logs?type=1&key='+key+''
     })
+    this.setData({key:''});
 },
   onPullDownRefresh:function(){ //下拉刷新
 

@@ -4,7 +4,6 @@ Page({
   data: {
     nlist: {
       list: [],
-      keyword:'',
       scrolltype:false,
       url: "../news/news",
       pid: 1
@@ -15,7 +14,8 @@ Page({
     pagesize: 15,
     rootid: '13',
     loadName: "努力加载中。。。",
-    isHiddenLoading:true
+    isHiddenLoading:true,
+    keyword:''
   },
   onShareAppMessage: function() {
     return {
@@ -24,6 +24,7 @@ Page({
     }
   },
   onLoad: function() { //加载数据渲染页面
+    console.log('艾瑞观点初始化')
     wx.showNavigationBarLoading(); //显示页面加载中状态
     this.fetchConferenceData();
   },
@@ -34,10 +35,15 @@ Page({
       return;
     }
     else {
+      let temp = "keyword";
+      this.setData({
+        [temp]:''
+      })
       wx.navigateTo({
         url: '../wxsearch/wxsearch?keyWord=' + key + ''
       })
     }
+    
   },
   researchserch: function (e) {
     this.setData({

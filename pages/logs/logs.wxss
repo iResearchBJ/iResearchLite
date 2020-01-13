@@ -7,3 +7,5 @@ page{padding-bottom: 56px;}
 .log-item {
   margin: 10rpx;
 }
+
+.load { text-align: center; padding: .8rem;}
