@@ -1,9 +1,8 @@
 {
   "pages": [
-    
+
     "pages/index/index",
     "pages/indexList/indexList",
-
     "pages/news/news",
     "pages/report/report",
     "pages/research/research",
@@ -60,5 +59,6 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "debug": true
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
 }
