@@ -23,7 +23,7 @@
         </view>
       </form>
     </view>
-    <view wx:if="{{curIndexTab.id=='video'}}">
+    <!-- <view wx:if="{{curIndexTab.id=='video'}}">
       <form bindreset="">
         <view class="search"> 
           <view class="in">
@@ -32,8 +32,8 @@
           </view>
         </view>
       </form>
-    </view>
-    <view wx:if="{{curIndexTab.id=='channel'}}">
+    </view> -->
+    <!-- <view wx:if="{{curIndexTab.id=='channel'}}">
       <form bindreset="">
         <view class="search"> 
           <view class="in">
@@ -42,7 +42,7 @@
           </view>
         </view>
       </form>
-    </view>
+    </view> -->
     <view wx:if="{{curIndexTab.id=='overseas'}}">
       <form bindreset="">
         <view class="search"> 
@@ -166,7 +166,7 @@
           </view>
         </view>
       </block>
-      <block wx:if="{{curIndexTab.id == 'video'}}">
+      <!-- <block wx:if="{{curIndexTab.id == 'video'}}">
         <view wx:for="{{videoFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
           <text class='ico'>{{item.name}}</text>
         </view>
@@ -185,7 +185,7 @@
             <text>{{item.name}}</text>
           </view>
         </view>
-      </block>
+      </block> -->
       <block wx:if="{{curIndexTab.id == 'ad'}}">
         <view wx:for="{{adFilterList}}" class="index-filter-item" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
           <text class='ico'>{{item.name}}</text>
@@ -232,7 +232,7 @@
 
       </block>
       
-      <block wx:if="{{curIndexTab.id == 'channel'}}">
+      <!-- <block wx:if="{{curIndexTab.id == 'channel'}}">
         <view wx:for="{{channelFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
           <text class='ico'>{{item.name}}</text>
         </view>
@@ -260,7 +260,7 @@
           </view>
         </view>
 
-      </block>
+      </block> -->
       <block wx:if="{{curIndexTab.id == 'overseas'}}">
         <view wx:for="{{overseasFilterList}}" class="index-filter-item {{curFilterTab.id==item.id?'active':''}}" hover-class="index-filter-item-hover" data-current="{{index}}" data-data="{{item}}" bindtap="swichFilter">
           <text class='ico'>{{item.name}}</text>
@@ -556,7 +556,7 @@
         </scroll-view>
       </swiper-item>
       <!--video-->
-      <swiper-item>
+      <!-- <swiper-item>
         <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextVideoData">
           <block wx:for="{{videoDataList}}">
             <view class='index-list-item'>
@@ -584,7 +584,7 @@
           </block>
           <view class="list-loading" wx:if="{{videoDataLoading}}">{{videoLoadName}}</view>
         </scroll-view>
-      </swiper-item>
+      </swiper-item> -->
       <!--ad-->
       <swiper-item>
         <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}">
@@ -640,7 +640,7 @@
         </scroll-view>
       </swiper-item>
       <!--channel-->
-      <swiper-item>
+      <!-- <swiper-item>
         <scroll-view scroll-y="true" class="scoll-h" scroll-with-animation="true" scroll-top="{{scrolltop}}" bindscrolltolower="loadNextChannelData">
 
            <block wx:for="{{channelDataList}}"> 
@@ -678,7 +678,7 @@
            </block> 
           <view class="list-loading" wx:if="{{channelDataLoading}}">{{channelLoadName}}</view>
         </scroll-view>
-      </swiper-item>
+      </swiper-item> -->
        <!--wxdata-->
       <!--<swiper-item>
 

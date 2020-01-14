@@ -21,13 +21,13 @@ Page({
         ico: '/images/index/2.png',
         isHidden: false
       },
-      {
-        id: 'video',
-        nameZh: '网络影视指数',
-        nameEn: 'Online Video Index',
-        ico: '/images/index/3.png',
-        isHidden: false
-      },
+      // {
+      //   id: 'video',
+      //   nameZh: '网络影视指数',
+      //   nameEn: 'Online Video Index',
+      //   ico: '/images/index/3.png',
+      //   isHidden: false
+      // },
       {
         id: 'ad',
         nameZh: '网络广告指数',
@@ -42,13 +42,13 @@ Page({
         ico: '/images/index/5.png',
         isHidden: false
       },
-      {
-        id: 'channel',
-        nameZh: '移动渠道指数',
-        nameEn: 'Mobile Store Index',
-        ico: '/images/index/6.png',
-        isHidden: false
-      },
+      // {
+      //   id: 'channel',
+      //   nameZh: '移动渠道指数',
+      //   nameEn: 'Mobile Store Index',
+      //   ico: '/images/index/6.png',
+      //   isHidden: false
+      // },
       {
         id: 'overseas',
         nameZh: '海外APP指数',
@@ -78,10 +78,10 @@ Page({
         id: "pc",
         name: "PC Web指数"
       },
-      {
-        id: "video",
-        name: "网络影视指数"
-      },
+      // {
+      //   id: "video",
+      //   name: "网络影视指数"
+      // },
       {
         id: "ad",
         name: "网络广告指数"
@@ -90,10 +90,10 @@ Page({
         id: "device",
         name: "移动设备指数"
       },
-      {
-        id: "channel",
-        name: "移动渠道指数"
-      },
+      // {
+      //   id: "channel",
+      //   name: "移动渠道指数"
+      // },
        {
          id: "overseas",
          name: "海外APP指数"
